@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.*?>
+<?import ru.inversion.fx.form.controls.*?>
+<VBox spacing="5.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.EditIkrbTypeaccController">
+<children>
+<GridPane hgap="5.0" vgap="5.0" VBox.vgrow="ALWAYS">
+<children>
+<JInvLabel fx:id="lblITYPE_ACC" text="%ITYPE_ACC" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+<JInvLongField fx:id="ITYPE_ACC" maxWidth="-Infinity" prefColumnCount="5" fieldName="ITYPE_ACC" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+<JInvLabel fx:id="lblCTYPE_ACCNAME" text="%CTYPE_ACCNAME" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+<JInvTextField fx:id="CTYPE_ACCNAME" prefColumnCount="50" fieldName="CTYPE_ACCNAME" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+<JInvLabel fx:id="lblITYPE_FLAG" text="%ITYPE_FLAG" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+<JInvLongField fx:id="ITYPE_FLAG" maxWidth="-Infinity" prefColumnCount="2" fieldName="ITYPE_FLAG" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+</children>
+<columnConstraints>
+<ColumnConstraints halignment="RIGHT" />
+<ColumnConstraints hgrow="ALWAYS" />
+</columnConstraints>
+<VBox.margin>
+<Insets />
+</VBox.margin>
+<rowConstraints>
+<RowConstraints />
+<RowConstraints />
+<RowConstraints />
+<RowConstraints minHeight="1.0"/>
+</rowConstraints>
+</GridPane>
+<ButtonBar buttonMinWidth="80.0">
+<buttons>
+<JInvButton fx:id="btOK" />
+<JInvButton fx:id="btCancel" />
+</buttons>
+</ButtonBar>
+</children>
+<padding>
+<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+</padding>
+</VBox>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.*?>
+<?import ru.inversion.fx.form.controls.*?>
+<VBox spacing="5.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.EditIkrbTarScaleController">
+<children>
+<GridPane hgap="5.0" vgap="5.0" VBox.vgrow="ALWAYS">
+<children>
+<JInvLabel fx:id="lblITARID" text="%ITARID" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+<JInvLongField fx:id="ITARID" maxWidth="-Infinity" prefColumnCount="0" fieldName="ITARID" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+<JInvLabel fx:id="lblCTARNAME" text="%CTARNAME" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+<JInvTextField fx:id="CTARNAME" prefColumnCount="50" fieldName="CTARNAME" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+<JInvLabel fx:id="lblITARFIX" text="%ITARFIX" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+<JInvLongField fx:id="ITARFIX" maxWidth="-Infinity" prefColumnCount="0" fieldName="ITARFIX" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+<JInvLabel fx:id="lblITARPERCENT" text="%ITARPERCENT" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+<JInvLongField fx:id="ITARPERCENT" maxWidth="-Infinity" prefColumnCount="0" fieldName="ITARPERCENT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+<JInvLabel fx:id="lblITARMIN" text="%ITARMIN" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+<JInvLongField fx:id="ITARMIN" maxWidth="-Infinity" prefColumnCount="0" fieldName="ITARMIN" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+<JInvLabel fx:id="lblITARMAX" text="%ITARMAX" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+<JInvLongField fx:id="ITARMAX" maxWidth="-Infinity" prefColumnCount="0" fieldName="ITARMAX" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+</children>
+<columnConstraints>
+<ColumnConstraints halignment="RIGHT" />
+<ColumnConstraints hgrow="ALWAYS" />
+</columnConstraints>
+<VBox.margin>
+<Insets />
+</VBox.margin>
+<rowConstraints>
+<RowConstraints />
+<RowConstraints />
+<RowConstraints />
+<RowConstraints />
+<RowConstraints />
+<RowConstraints />
+<RowConstraints minHeight="1.0"/>
+</rowConstraints>
+</GridPane>
+<ButtonBar buttonMinWidth="80.0">
+<buttons>
+<JInvButton fx:id="btOK" />
+<JInvButton fx:id="btCancel" />
+</buttons>
+</ButtonBar>
+</children>
+<padding>
+<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+</padding>
+</VBox>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+
+<groupId>ru.inversion</groupId>
+<artifactId>FXCalcBank</artifactId>
+<version>1.0</version>
+<packaging>jar</packaging>
+<description>Расчетный банк</description>
+<name>FXCalcBank</name>
+
+<developers>
+    <developer>
+        <organization>Инверсия-кавказ</organization>
+        <organizationUrl>https://inversion-kavkaz.ru</organizationUrl>
+        <name>Хвастунов Дмитрий</name>
+        <email>hvastunov@inversion-kavkaz.ru</email>
+    </developer>
+</developers>
+
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <timestamp>${maven.build.timestamp}</timestamp>
+    <maven.build.timestamp.format>dd.MM.yyyy</maven.build.timestamp.format>
+    <slf4j.version>1.7.25</slf4j.version>
+    <apache.common.version>3.12.0</apache.common.version>
+</properties>
+
+<dependencies>
+    <dependency><groupId>ru.inversion.jp</groupId><version>1.0.0</version><artifactId>JInvFore_jar</artifactId><scope>system</scope><systemPath>C:\JAPP_604\JInvFore.jar</systemPath></dependency>
+    <dependency><groupId>ru.inversion.jp</groupId><version>1.0.0</version><artifactId>FXbicomp_jar</artifactId><scope>system</scope><systemPath>C:\JAPP_604\FXbicomp.jar</systemPath></dependency>
+    <dependency><groupId>ru.inversion.jp</groupId><version>1.0.0</version><artifactId>lib_slf4j_api_jar</artifactId><scope>system</scope><systemPath>C:\JAPP_604\lib\slf4j-api.jar</systemPath></dependency>
+    <dependency><groupId>ru.inversion-kavkaz</groupId><artifactId>manifest-reader</artifactId><version>1.0.0</version><scope>system</scope><systemPath>C:\JAPP_604\lib\manifest-reader.jar</systemPath></dependency>
+    <dependency><groupId>ru.inversion-kavkaz</groupId><artifactId>FxPlRefer_jar</artifactId><version>1.0.0</version><scope>system</scope><systemPath>C:\JAPP_604\FxPlRefer.jar</systemPath></dependency>
+
+</dependencies>
+
+<build>
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+        <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>3.1.1</version>
+            <configuration>
+                <finalName>${project.name}</finalName>
+                <archive>
+                    <manifest>
+                        <mainClass>ru.inversion.FXCalcBank.PIkrbFileInMain</mainClass>
+                        <classpathLayoutType>custom</classpathLayoutType>
+                        <customClasspathLayout>$${project.artifactId}.$${project.packaging}</customClasspathLayout>
+                    </manifest>
+                    <manifestEntries>
+                        <Class-Path> JInvFore.jar FXbicomp.jar lib\manifest-reader.jar FxPlRefer.jar</Class-Path>
+                        <Codebase>*</Codebase><Permissions>all-permissions</Permissions>
+                        <Build>${buildNumber}</Build>
+                        <Version>${project.version}</Version>
+                        <Build-date>${timestamp}</Build-date>
+                    </manifestEntries>
+                </archive>
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+                <appendAssemblyId>false</appendAssemblyId>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>make-assembly</id>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>single</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>2.4</version>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <mainClass>ru.inversion.FXCalcBank.PIkrbFileInMain</mainClass>
+                        <classpathLayoutType>custom</classpathLayoutType>
+                        <customClasspathLayout>$${project.artifactId}.$${project.packaging}</customClasspathLayout>
+                    </manifest>
+                    <manifestEntries>
+                        <Class-Path> JInvFore.jar FXbicomp.jar lib\manifest-reader.jar FxPlRefer.jar</Class-Path>
+                        <Codebase>*</Codebase><Permissions>all-permissions</Permissions>
+                        <Build>${buildNumber}</Build>
+                        <Version>${project.version}</Version>
+                        <Build-date>${timestamp}</Build-date>
+                    </manifestEntries>
+                </archive>
+            </configuration>
+        </plugin>
+
+        <plugin>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.0.0</version>
+            <executions>
+                <execution>
+                    <id>copy-resources</id>
+                    <phase>validate</phase>
+                    <goals>
+                        <goal>copy-resources</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>${basedir}/target/classes/source</outputDirectory>
+                        <resources>
+                            <resource>
+                                <directory>src/main/java</directory>
+                                <filtering>false</filtering>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+
+        <!--Автоматическая генерация номера сборки-->
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>buildnumber-maven-plugin</artifactId>
+            <version>1.3</version>
+            <executions>
+                <execution>
+                    <id>buildnumber</id>
+                    <phase>validate</phase>
+                    <goals>
+                        <goal>create</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <!--                    <format>{1}{0,number}/{2,date,dd.MM.yyyy} </format>-->
+                <format>{0,number}</format>
+                <items>
+                    <item>buildNumber</item>
+                    <!--                        <item>${project.version}</item>-->
+                    <!--                        <item>timestamp</item>-->
+                </items>
+                <doCheck>true</doCheck>
+                <doUpdate>true</doUpdate>
+                <revisionOnScmFailure>unknownbuild</revisionOnScmFailure>
+            </configuration>
+        </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.1</version>
+            <executions>
+                <execution>
+                    <id>compile</id>
+                    <phase>compile</phase>
+                    <goals>
+                        <goal>compile</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>testCompile</id>
+                    <phase>test-compile</phase>
+                    <goals>
+                        <goal>testCompile</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <source>${maven.compiler.source}</source>
+                <target>${maven.compiler.source}</target>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+
+<scm>
+    <connection>scm:svn:http://127.0.0.1/dummy</connection>
+    <developerConnection>scm:svn:https://127.0.0.1/dummy</developerConnection>
+    <tag>HEAD</tag>
+    <url>http://127.0.0.1/dummy</url>
+</scm>
+</project>

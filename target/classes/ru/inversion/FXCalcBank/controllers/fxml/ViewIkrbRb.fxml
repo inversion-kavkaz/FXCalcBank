@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import ru.inversion.fx.form.controls.JInvTable?>
+<?import ru.inversion.fx.form.controls.JInvTableColumn?>
+
+
+<SplitPane dividerPositions="0.5" orientation="VERTICAL" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="ru.inversion.FXCalcBank.controllers.ViewIkrbRbController">
+   <items>
+        <JInvTable fx:id="IKRB_RB" tableMenuButtonVisible="true">
+            <columns>
+                <JInvTableColumn fx:id="IRBNUM" fieldName="IRBNUM" text="%IRBNUM" />
+                <JInvTableColumn fx:id="CRBNAME" fieldName="CRBNAME" prefWidth="300.0" text="%CRBNAME" />
+                <JInvTableColumn fx:id="IRBSHEMCOR" fieldName="IRBSHEMCOR" text="%IRBSHEMCOR" />
+                <JInvTableColumn fx:id="IRBPROCTYPE" fieldName="IRBPROCTYPE" text="%IRBPROCTYPE" />
+                <JInvTableColumn fx:id="IDSMR" fieldName="IDSMR" text="%IDSMR" />
+                <JInvTableColumn fx:id="IRBEXTENDID" fieldName="IRBEXTENDID" text="%IRBEXTENDID" />
+                <JInvTableColumn fx:id="CUSRLOGNAME" fieldName="CUSRLOGNAME" text="%CUSRLOGNAME" />
+                <JInvTableColumn fx:id="CBIC" fieldName="CBIC" text="%CBIC" />
+            </columns>
+        </JInvTable>
+      <JInvTable fx:id="IKRB_TYPEEV" tableMenuButtonVisible="true">
+         <columns>
+            <JInvTableColumn fx:id="ITYPEEVEVID" fieldName="ITYPEEVEVID" text="%ITYPEEVEVID" />
+            <JInvTableColumn fx:id="CTYPEEVNAME" fieldName="CTYPEEVNAME" prefWidth="300.0" text="%CTYPEEVNAME" />
+            <JInvTableColumn fx:id="ITYPEEVTYPE" fieldName="ITYPEEVTYPE" text="%ITYPEEVTYPE" />
+            <JInvTableColumn fx:id="IPLTEVGR" fieldName="IPLTEVGR" text="%IPLTEVGR" />
+            <JInvTableColumn fx:id="IRBNUMT" fieldName="IRBNUM" text="%IRBNUMT" />
+            <JInvTableColumn fx:id="ITYPEEV_ACCD" fieldName="ITYPEEV_ACCD" text="%ITYPEEV_ACCD" />
+            <JInvTableColumn fx:id="ITYPEEV_ACCC" fieldName="ITYPEEV_ACCC" text="%ITYPEEV_ACCC" />
+            <JInvTableColumn fx:id="CTYPEEV_COD" fieldName="CTYPEEV_COD" text="%CTYPEEV_COD" />
+         </columns>
+      </JInvTable>
+   </items>
+</SplitPane>

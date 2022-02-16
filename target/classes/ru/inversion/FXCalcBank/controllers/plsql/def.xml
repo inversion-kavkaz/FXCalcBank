@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sql_expr_list>
+
+    <!-- Сохраняем файл в таблицу -->
+    <expression name="fileSave" lang="PL/SQL">
+        <script><![CDATA[
+            declare
+            begin
+              insert into ikrb_tmp_file (lfile,fname) values(:lFile,:fileName);
+              ikrb_main.add_file_in;
+            end;
+        ]]></script>
+    </expression>
+
+    <!-- Проводка -->
+    <expression name="runTransactionAction" lang="PL/SQL">
+        <script><![CDATA[
+            declare
+            begin
+                ikrb_main.make_plt(:IFileInID);
+            end;
+        ]]></script>
+    </expression>
+
+    <!-- выгрузка файла -->
+    <expression name="upLoadFile" lang="PL/SQL">
+        <script><![CDATA[
+            declare
+            begin
+                ikrb_main.make_fileout(:IFileInID);
+            end;
+        ]]></script>
+    </expression>
+
+</sql_expr_list>
+
+

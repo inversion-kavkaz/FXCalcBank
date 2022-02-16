@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.VBox?>
+<?import ru.inversion.fx.form.controls.*?>
+<SplitPane dividerPositions="0.5" orientation="VERTICAL" xmlns="http://javafx.com/javafx/8.0.202"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="ru.inversion.FXCalcBank.controllers.ViewIkrbRb1Controller">
+    <items>
+        <VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0">
+            <children>
+                <JInvToolBar fx:id="toolBar" multipleUse="true"/>
+                <JInvTable fx:id="IKRB_RB" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <JInvTableColumn fx:id="IRBNUM" fieldName="IRBNUM" text="%IRBNUM"/>
+                        <JInvTableColumn fx:id="CRBNAME" fieldName="CRBNAME" prefWidth="300.0" text="%CRBNAME"/>
+                        <JInvTableColumn fx:id="IRBPROCTYPE" fieldName="IRBPROCTYPE" text="%IRBPROCTYPE"/>
+                        <JInvTableColumn fx:id="CUSRLOGNAME" fieldName="CUSRLOGNAME" text="%CUSRLOGNAME"/>
+                        <JInvTableColumn fx:id="CBIC" fieldName="CBIC" text="%CBIC"/>
+                    </columns>
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0"/>
+                    </VBox.margin>
+                </JInvTable>
+            </children>
+        </VBox>
+        <JInvTable fx:id="IKRB_BANK" tableMenuButtonVisible="true">
+            <columns>
+                <JInvTableColumn fx:id="IBANKID" fieldName="IBANKID" text="%IBANKID"/>
+                <JInvTableColumn fx:id="CBANKNAME" fieldName="CBANKNAME" prefWidth="300.0" text="%CBANKNAME"/>
+                <JInvTableColumn fx:id="CBANKUSER" fieldName="CBANKUSER" text="%CBANKUSER"/>
+                <JInvTableColumn fx:id="IBANKSTATUS" fieldName="IBANKSTATUS" text="%IBANKSTATUS"/>
+                <JInvTableColumnDate fx:id="DBANKOPEN" fieldName="DBANKOPEN" text="%DBANKOPEN"/>
+                <JInvTableColumnDate fx:id="DBANKCLOSED" fieldName="DBANKCLOSED" text="%DBANKCLOSED"/>
+                <JInvTableColumn fx:id="FICODE" fieldName="FICODE" text="%FICODE"/>
+            </columns>
+        </JInvTable>
+    </items>
+</SplitPane>

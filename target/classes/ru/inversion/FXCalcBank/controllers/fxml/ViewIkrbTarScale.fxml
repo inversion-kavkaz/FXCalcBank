@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.VBox?>
+<?import ru.inversion.fx.form.controls.*?>
+<VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.ViewIkrbTarScaleController">
+<children>
+<JInvToolBar fx:id="toolBar" />
+<JInvTable fx:id="IKRB_TAR_SCALE" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+<columns>
+<JInvTableColumn fx:id="ITARID" text="%ITARID" fieldName="ITARID"  />
+<JInvTableColumn fx:id="CTARNAME" text="%CTARNAME" fieldName="CTARNAME" prefWidth="300.0" />
+<JInvTableColumn fx:id="ITARFIX" text="%ITARFIX" fieldName="ITARFIX"  />
+<JInvTableColumn fx:id="ITARPERCENT" text="%ITARPERCENT" fieldName="ITARPERCENT"  />
+<JInvTableColumn fx:id="ITARMIN" text="%ITARMIN" fieldName="ITARMIN"  />
+<JInvTableColumn fx:id="ITARMAX" text="%ITARMAX" fieldName="ITARMAX"  />
+</columns>
+<VBox.margin>
+<Insets bottom="5.0" left="5.0" right="5.0" />
+</VBox.margin>
+</JInvTable>
+</children>
+</VBox>

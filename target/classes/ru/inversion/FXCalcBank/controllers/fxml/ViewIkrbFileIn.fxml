@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import ru.inversion.fx.form.controls.*?>
+<SplitPane dividerPositions="0.5, 0.5" orientation="VERTICAL" prefHeight="700.0" prefWidth="1000.0"
+           xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="ru.inversion.FXCalcBank.controllers.ViewIkrbFileInController">
+    <items>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="Файл">
+                    <items>
+                        <MenuItem fx:id="LOAD_FILE" mnemonicParsing="false" onAction="#loadFile" text="Загрузить"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Справочники">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#openAccTypeDictionary"
+                                  text="Справочник типов счетов"/>
+                        <MenuItem mnemonicParsing="false" onAction="#openTarScaleDictionary"
+                                  text="Справочник тарифов"/>
+                        <MenuItem mnemonicParsing="false" onAction="#openRBDictionary"
+                                  text="Справочник действий"/>
+                        <MenuItem mnemonicParsing="false" onAction="#openBankDictionary"
+                                  text="Справочник участников"/>
+                        <MenuItem mnemonicParsing="false" onAction="#openVPlFile"
+                                  text="Форматы файлов обмена"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Помощь">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="О программе"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <VBox spacing="5.0">
+            <children>
+                <JInvToolBar fx:id="toolBar"/>
+                <JInvTable fx:id="IKRB_FILE_IN" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <JInvTableColumn fx:id="CFILEINNAME" fieldName="CFILEINNAME" prefWidth="300.0"
+                                         text="%CFILEINNAME"/>
+                        <JInvTableColumn fx:id="IFILEINSTATUS" fieldName="IFILEINSTATUS" text="%IFILEINSTATUS"/>
+                        <JInvTableColumnDate fx:id="DFILEINLOAD" fieldName="DFILEINLOAD" text="%DFILEINLOAD"/>
+                        <JInvTableColumn fx:id="CUSRLOGNAME" fieldName="CUSRLOGNAME" text="%CUSRLOGNAME"/>
+                    </columns>
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0"/>
+                    </VBox.margin>
+                </JInvTable>
+            </children>
+        </VBox>
+        <VBox>
+            <children>
+                <JInvTable fx:id="IKRB_FILE_ROWS" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <JInvTableColumn fx:id="IMSGLINE" fieldName="IMSGLINE" text="%IMSGLINE"/>
+                        <JInvTableColumn fx:id="CRAWSTR" fieldName="CRAWSTR" prefWidth="300.0" text="%CRAWSTR"/>
+                    </columns>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                </JInvTable>
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </padding>
+        </VBox>
+    </items>
+</SplitPane>

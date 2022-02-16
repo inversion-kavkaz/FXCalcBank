@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.*?>
+<?import ru.inversion.fx.form.controls.*?>
+<VBox spacing="5.0" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.EditIkrbBankController">
+    <children>
+        <GridPane hgap="5.0" vgap="5.0" VBox.vgrow="ALWAYS">
+            <children>
+                <!--<JInvLabel fx:id="lblIBANKID" text="%IBANKID" GridPane.columnIndex="0" GridPane.rowIndex="0" />-->
+                <!--<JInvLongField fx:id="IBANKID" maxWidth="-Infinity" prefColumnCount="10" fieldName="IBANKID" GridPane.columnIndex="1" GridPane.rowIndex="0" />-->
+
+                <JInvLabel fx:id="lblCBANKNAME" text="%CBANKNAME" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <JInvTextField fx:id="CBANKNAME" fieldName="CBANKNAME" prefColumnCount="50" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <JInvLabel fx:id="lblCBANKUSER" text="%CBANKUSER" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <JInvTextField fx:id="CBANKUSER" fieldName="CBANKUSER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <JInvLabel fx:id="lblIBANKSTATUS" text="%IBANKSTATUS" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <JInvLongField fx:id="IBANKSTATUS" fieldName="IBANKSTATUS" maxWidth="-Infinity" prefColumnCount="2" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <JInvLabel fx:id="lblDBANKOPEN" text="%DBANKOPEN" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <JInvCalendar fx:id="DBANKOPEN" fieldName="DBANKOPEN" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                <JInvLabel fx:id="lblDBANKCLOSED" text="%DBANKCLOSED" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                <JInvCalendar fx:id="DBANKCLOSED" fieldName="DBANKCLOSED" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                <JInvLabel fx:id="lblFICODE" text="%FICODE" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                <JInvTextField fx:id="FICODE" fieldName="FICODE" maxWidth="-Infinity" prefColumnCount="15" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+            </children>
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" />
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </GridPane>
+        <ButtonBar buttonMinWidth="80.0">
+            <buttons>
+                <JInvButton fx:id="btOK" />
+                <JInvButton fx:id="btCancel" />
+            </buttons>
+        </ButtonBar>
+    </children>
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+    </padding>
+</VBox>
