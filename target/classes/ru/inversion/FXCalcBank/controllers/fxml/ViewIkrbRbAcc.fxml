@@ -2,21 +2,24 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.VBox?>
-<?import ru.inversion.fx.form.controls.*?>
-<VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.40"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.ViewIkrbRbAccController">
+<?import ru.inversion.bicomp.tablecolumn.JInvTableColumnAccountNum?>
+<?import ru.inversion.fx.form.controls.JInvTable?>
+<?import ru.inversion.fx.form.controls.JInvTableColumn?>
+<?import ru.inversion.fx.form.controls.JInvToolBar?>
+
+<VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.ViewIkrbRbAccController">
     <children>
-        <JInvToolBar fx:id="toolBar"/>
+        <JInvToolBar fx:id="toolBar" />
         <JInvTable fx:id="IKRB_RB_ACC" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
             <columns>
-                <JInvTableColumn fx:id="IRB_ACCID" text="%IRB_ACCID" fieldName="IRB_ACCID"/>
-                <JInvTableColumn fx:id="IRBNUM" text="%IRBNUM" fieldName="IRBNUM"/>
-                <JInvTableColumn fx:id="CRBACC" text="%CRBACC" fieldName="CRBACC"/>
-                <JInvTableColumn fx:id="CRBCUR" text="%CRBCUR" fieldName="CRBCUR"/>
-                <JInvTableColumn fx:id="ITYPE_ACC" text="%ITYPE_ACC" fieldName="ITYPE_ACC"/>
+                <JInvTableColumn fx:id="IRB_ACCID" alignment="CENTER" fieldName="IRB_ACCID" text="%IRB_ACCID" />
+                <JInvTableColumn fx:id="IRBNUM" alignment="CENTER" fieldName="IRBNUM" text="%IRBNUM" />
+                <JInvTableColumnAccountNum fx:id="CRBACC" alignment="CENTER" fieldName="CRBACC" text="%CRBACC" />
+                <JInvTableColumn fx:id="CRBCUR" alignment="CENTER" fieldName="CRBCUR" text="%CRBCUR" />
+                <JInvTableColumn fx:id="ITYPE_ACC" alignment="CENTER" fieldName="ITYPE_ACC" text="%ITYPE_ACC" />
             </columns>
             <VBox.margin>
-                <Insets bottom="5.0" left="5.0" right="5.0"/>
+                <Insets bottom="5.0" left="5.0" right="5.0" />
             </VBox.margin>
         </JInvTable>
     </children>

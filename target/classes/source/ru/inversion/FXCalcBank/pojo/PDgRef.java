@@ -10,7 +10,6 @@ import java.io.Serializable;
  * @author XDWeloper
  * @since 2022/02/15 14:44:14
  */
-@SuppressWarnings("ALL")
 @Entity(name = "ru.inversion.calc_bank.PDgRef")
 @Table(name = "DG_REF")
 public class PDgRef implements Serializable {

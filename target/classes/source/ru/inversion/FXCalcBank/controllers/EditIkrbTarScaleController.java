@@ -21,6 +21,10 @@ public class EditIkrbTarScaleController extends JInvFXFormController<PIkrbTarSca
     //
 // Initializes the controller class.
 //
+    @Override
+    protected void init() throws Exception {
+        super.init();
+    }
 
 }
 

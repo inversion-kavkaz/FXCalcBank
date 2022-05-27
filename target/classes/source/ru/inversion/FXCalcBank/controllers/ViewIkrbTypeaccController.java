@@ -33,7 +33,8 @@ public class ViewIkrbTypeaccController extends JInvFXBrowserController
 //
 // initDataSet
 //    
-    private void initDataSet () {
+    private void initDataSet () throws Exception 
+    {
         dsIKRB_TYPEACC.setTaskContext (getTaskContext ());
         dsIKRB_TYPEACC.setRowClass (PIkrbTypeacc.class);
     }
@@ -81,8 +82,18 @@ public class ViewIkrbTypeaccController extends JInvFXBrowserController
                                     ActionFactory.ActionTypeEnum.UPDATE,
                                     ActionFactory.ActionTypeEnum.DELETE);
     }
-
-    private void doOperation ( JInvFXFormController.FormModeEnum mode )
+//
+// setPrintParam
+//
+    private void setPrintParam ( ApReport ap ) 
+    {
+        if (dsIKRB_TYPEACC.isEmpty ())
+            throw new StopExecuteActionBiCompException ();
+    }
+//
+// doOperation
+//    
+    private void doOperation ( JInvFXFormController.FormModeEnum mode ) 
     {
         PIkrbTypeacc p = null;
 

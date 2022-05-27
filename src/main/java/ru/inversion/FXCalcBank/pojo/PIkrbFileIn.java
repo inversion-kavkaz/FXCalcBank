@@ -11,7 +11,6 @@ import java.time.LocalDate;
  * @author XDWeloper
  * @since 2022/02/07 11:57:19
  */
-@SuppressWarnings("ALL")
 @Entity(name = "ru.inversion.FXCalcBank.pojo.PIkrbFileIn")
 @Table(name = "IKRB_FILE_IN")
 public class PIkrbFileIn implements Serializable {

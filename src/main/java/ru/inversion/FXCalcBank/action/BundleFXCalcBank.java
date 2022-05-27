@@ -4,9 +4,10 @@ import ru.inversion.fx.form.AbstractBaseController;
 
 import java.util.ResourceBundle;
 
-class BundleFXCalcBank {
-        private static final ResourceBundle BUNDLE= AbstractBaseController.getResourceBundle(BundleFXCalcBank.class);
-        static String getString(String key) {
+public class BundleFXCalcBank {
+        protected static final ResourceBundle BUNDLE= AbstractBaseController.getResourceBundle(BundleFXCalcBank.class);
+
+        public static String getString(String key) {
             return BUNDLE.getString(key);
         }
     }

@@ -1,10 +1,13 @@
 package ru.inversion.FXCalcBank.pojo;
 
-import ru.inversion.db.entity.DBReturningValue;
-
-import javax.persistence.*;
+import java.math.BigDecimal;
+import java.sql.*;
+import java.time.*;
 import java.io.Serializable;
-import java.time.LocalDate;
+import javax.persistence.*;
+import ru.inversion.dataset.mark.*;
+import ru.inversion.db.entity.DBReturningValue;
+import ru.inversion.db.entity.ProxyFor;
 
 /**
 @author  XDWeloper

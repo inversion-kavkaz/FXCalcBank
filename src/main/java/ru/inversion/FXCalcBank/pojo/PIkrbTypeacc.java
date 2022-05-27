@@ -1,10 +1,13 @@
 package ru.inversion.FXCalcBank.pojo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.math.BigDecimal;
+import java.sql.*;
+import java.time.*;
 import java.io.Serializable;
+import javax.persistence.*;
+import ru.inversion.dataset.mark.*;
+import ru.inversion.db.entity.DBReturningValue;
+import ru.inversion.db.entity.ProxyFor;
 
 /**
 @author  XDWeloper
@@ -22,8 +25,9 @@ public class PIkrbTypeacc implements Serializable
 
     public PIkrbTypeacc(){}
 
-    @Id 
-    @Column(name="ITYPE_ACC",nullable = false,length = 5)
+    @Id
+    @DBReturningValue
+    @Column(name="ITYPE_ACC",length = 5)
     public Long getITYPE_ACC() {
         return ITYPE_ACC;
     }

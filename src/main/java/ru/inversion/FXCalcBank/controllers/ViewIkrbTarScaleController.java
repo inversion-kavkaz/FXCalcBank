@@ -30,7 +30,7 @@ public class ViewIkrbTarScaleController extends JInvFXBrowserController {
 
     private final XXIDataSet<PIkrbTarScale> dsIKRB_TAR_SCALE = new XXIDataSet<>();
 
-    private void initDataSet() {
+    private void initDataSet() throws Exception {
         dsIKRB_TAR_SCALE.setTaskContext(getTaskContext());
         dsIKRB_TAR_SCALE.setRowClass(PIkrbTarScale.class);
     }

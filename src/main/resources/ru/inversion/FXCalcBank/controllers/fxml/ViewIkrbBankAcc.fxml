@@ -2,21 +2,25 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.VBox?>
-<?import ru.inversion.fx.form.controls.*?>
-<VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.ViewIkrbBankAccController">
-<children>
-<JInvToolBar fx:id="toolBar" />
-<JInvTable fx:id="IKRB_BANK_ACC" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
-<columns>
-<JInvTableColumn fx:id="IBANK_ACCID" text="%IBANK_ACCID" fieldName="IBANK_ACCID"  />
-<JInvTableColumn fx:id="IBANKID" text="%IBANKID" fieldName="IBANKID"  />
-<JInvTableColumn fx:id="CRBACC" text="%CRBACC" fieldName="CRBACC"  />
-<JInvTableColumn fx:id="CRBCUR" text="%CRBCUR" fieldName="CRBCUR"  />
-<JInvTableColumn fx:id="ITYPE_ACC" text="%ITYPE_ACC" fieldName="ITYPE_ACC"  />
-</columns>
-<VBox.margin>
-<Insets bottom="5.0" left="5.0" right="5.0" />
-</VBox.margin>
-</JInvTable>
-</children>
+<?import ru.inversion.bicomp.tablecolumn.JInvTableColumnAccountNum?>
+<?import ru.inversion.fx.form.controls.JInvTable?>
+<?import ru.inversion.fx.form.controls.JInvTableColumn?>
+<?import ru.inversion.fx.form.controls.JInvToolBar?>
+
+<VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.ViewIkrbBankAccController">
+    <children>
+        <JInvToolBar fx:id="toolBar" />
+        <JInvTable fx:id="IKRB_BANK_ACC" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+            <columns>
+                <JInvTableColumn fx:id="IBANK_ACCID" alignment="CENTER" fieldName="IBANK_ACCID" text="%IBANK_ACCID" />
+                <JInvTableColumn fx:id="IBANKID1" alignment="CENTER" fieldName="IBANKID" text="%IBANKID" />
+                <JInvTableColumnAccountNum fx:id="CRBACC" alignment="CENTER" fieldName="CRBACC" text="%CRBACC" />
+                <JInvTableColumn fx:id="CRBCUR" alignment="CENTER" fieldName="CRBCUR" text="%CRBCUR" />
+                <JInvTableColumn fx:id="ITYPE_ACC" alignment="CENTER" fieldName="ITYPE_ACC" text="%ITYPE_ACC" />
+            </columns>
+            <VBox.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" />
+            </VBox.margin>
+        </JInvTable>
+    </children>
 </VBox>

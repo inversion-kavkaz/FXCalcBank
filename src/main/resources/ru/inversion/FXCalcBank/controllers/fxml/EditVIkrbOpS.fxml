@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import ru.inversion.fx.form.controls.JInvButton?>
+<?import ru.inversion.fx.form.controls.JInvCalendar?>
+<?import ru.inversion.fx.form.controls.JInvLabel?>
+<?import ru.inversion.fx.form.controls.JInvLongField?>
+<?import ru.inversion.fx.form.controls.JInvTextField?>
+
+<VBox spacing="5.0" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.EditVIkrbOpSController">
+    <children>
+        <GridPane hgap="5.0" vgap="5.0" VBox.vgrow="ALWAYS">
+            <children>
+                <JInvLabel fx:id="lblIRBOPSPRIOR" text="%IRBOPSPRIOR" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <JInvLongField fx:id="IRBOPSPRIOR" fieldName="IRBOPSPRIOR" maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <JInvLabel fx:id="lblCRBOPSOPER" text="%CRBOPSOPER" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <JInvTextField fx:id="CRBOPSOPER" fieldName="CRBOPSOPER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                <JInvLabel fx:id="lblDRBOPSDATE" text="%DRBOPSDATE" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <JInvCalendar fx:id="DRBOPSDATE" fieldName="DRBOPSDATE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+<!--                <JInvLabel fx:id="lblCRBOPNAME" text="%CRBOPNAME" GridPane.columnIndex="0" GridPane.rowIndex="4" />-->
+<!--                <JInvTextField fx:id="CRBOPNAME" fieldName="CRBOPNAME" prefColumnCount="50" GridPane.columnIndex="1" GridPane.rowIndex="4" />-->
+
+                <JInvLabel fx:id="lblITYPEEVEVID" text="%ITYPEEVEVID" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <JInvLongField fx:id="ITYPEEVEVID" editable="false" fieldName="ITYPEEVEVID" maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <JInvTextField fx:id="CTYPEEVNAME" fieldName="CTYPEEVNAME" prefColumnCount="50" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+
+                <JInvLabel fx:id="lblITARID" text="%ITARID" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                <JInvLongField fx:id="ITARID" editable="false" fieldName="ITARID" maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <JInvTextField fx:id="CTARNAME" fieldName="CTARNAME" prefColumnCount="50" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            </children>
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" />
+                <ColumnConstraints hgrow="ALWAYS" />
+            <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <rowConstraints>
+                <RowConstraints minHeight="1.0" />
+            </rowConstraints>
+        </GridPane>
+        <ButtonBar buttonMinWidth="80.0">
+            <buttons>
+                <JInvButton fx:id="btOK" />
+                <JInvButton fx:id="btCancel" />
+            </buttons>
+        </ButtonBar>
+    </children>
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+    </padding>
+</VBox>

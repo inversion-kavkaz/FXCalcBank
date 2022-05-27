@@ -7,6 +7,7 @@ import ru.inversion.FXCalcBank.pojo.PIkrbRbAcc;
 import ru.inversion.bicomp.action.JInvButtonPrint;
 import ru.inversion.bicomp.action.StopExecuteActionBiCompException;
 import ru.inversion.bicomp.fxreport.ApReport;
+import ru.inversion.dataset.DataSetException;
 import ru.inversion.dataset.IDataSet;
 import ru.inversion.dataset.XXIDataSet;
 import ru.inversion.dataset.fx.DSFXAdapter;
@@ -31,12 +32,14 @@ public class ViewIkrbBankAccController extends JInvFXBrowserController {
 
 
     private final XXIDataSet<PIkrbBankAcc> dsIKRB_BANK_ACC = new XXIDataSet<>(getTaskContext(), PIkrbBankAcc.class);
+    @FXML
+    private Long IBANKID;
 
-    private void initDataSet() {
+    private void initDataSet() throws Exception {
         Object obj = getInitProperties().get(AccEmployeeDictionaryAction.Params.IBANKID.name());
         if(obj != null)
         {
-            Long IBANKID = (Long)obj;
+            IBANKID = (Long)obj;
             dsIKRB_BANK_ACC.setFilter("IBANKID = " + IBANKID, true, false);
         }
 
@@ -101,6 +104,7 @@ public class ViewIkrbBankAccController extends JInvFXBrowserController {
         switch (mode) {
             case VM_INS:
                 p = new PIkrbBankAcc();
+                p.setIBANKID(IBANKID);
                 break;
             case VM_NONE:
                 if (dsIKRB_BANK_ACC.getCurrentRow() == null)
@@ -135,6 +139,11 @@ public class ViewIkrbBankAccController extends JInvFXBrowserController {
             switch (dctl.getFormMode()) {
                 case VM_INS:
                     dsIKRB_BANK_ACC.insertRow(dctl.getDataObject(), IDataSet.InsertRowModeEnum.AFTER_CURRENT, true);
+                    try {
+                        dsIKRB_BANK_ACC.refreshCurrentRowFromDB();
+                    } catch (DataSetException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 case VM_EDIT:
                     dsIKRB_BANK_ACC.updateCurrentRow(dctl.getDataObject());

@@ -3,21 +3,23 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.layout.*?>
+<?import ru.inversion.bicomp.control.JInvTextFieldAccountNum?>
 <?import ru.inversion.fx.form.controls.*?>
-<VBox spacing="5.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.EditIkrbBankAccController">
+<VBox spacing="5.0" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.EditIkrbBankAccController">
 <children>
 <GridPane hgap="5.0" vgap="5.0" VBox.vgrow="ALWAYS">
 <children>
-<JInvLabel fx:id="lblIBANK_ACCID" text="%IBANK_ACCID" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-<JInvLongField fx:id="IBANK_ACCID" maxWidth="-Infinity" prefColumnCount="3" fieldName="IBANK_ACCID" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-<JInvLabel fx:id="lblIBANKID" text="%IBANKID" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-<JInvLongField fx:id="IBANKID" maxWidth="-Infinity" prefColumnCount="10" fieldName="IBANKID" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-<JInvLabel fx:id="lblCRBACC" text="%CRBACC" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-<JInvTextField fx:id="CRBACC" maxWidth="-Infinity" prefColumnCount="20" fieldName="CRBACC" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-<JInvLabel fx:id="lblCRBCUR" text="%CRBCUR" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-<JInvTextField fx:id="CRBCUR" maxWidth="-Infinity" prefColumnCount="3" fieldName="CRBCUR" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-<JInvLabel fx:id="lblITYPE_ACC" text="%ITYPE_ACC" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-<JInvLongField fx:id="ITYPE_ACC" maxWidth="-Infinity" prefColumnCount="3" fieldName="ITYPE_ACC" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+<JInvLabel fx:id="lblCRBACC" text="%CRBACC" GridPane.columnIndex="0" />
+<JInvTextFieldAccountNum fx:id="CRBACC" fieldName="CRBACC" maxWidth="-Infinity" prefColumnCount="20" required="true" GridPane.columnIndex="1" />
+<JInvLabel fx:id="lblCRBCUR" text="%CRBCUR" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+<JInvCURTextField fx:id="CRBCUR" fieldName="CRBCUR" maxWidth="-Infinity" prefColumnCount="3" required="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+<JInvLabel fx:id="lblITYPE_ACC" text="%ITYPE_ACC" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <HBox GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                   <JInvTextField fx:id="TYPE_ACC_NAME" HBox.hgrow="ALWAYS" />
+                   <JInvLongField fx:id="ITYPE_ACC" fieldName="ITYPE_ACC" maxWidth="-Infinity" prefColumnCount="0" visible="false" />
+               </children>
+            </HBox>
 </children>
 <columnConstraints>
 <ColumnConstraints halignment="RIGHT" />
@@ -30,9 +32,7 @@
 <RowConstraints />
 <RowConstraints />
 <RowConstraints />
-<RowConstraints />
-<RowConstraints />
-<RowConstraints minHeight="1.0"/>
+<RowConstraints minHeight="1.0" />
 </rowConstraints>
 </GridPane>
 <ButtonBar buttonMinWidth="80.0">

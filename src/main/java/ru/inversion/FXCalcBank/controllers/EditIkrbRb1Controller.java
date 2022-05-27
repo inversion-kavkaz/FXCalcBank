@@ -20,7 +20,7 @@ public class EditIkrbRb1Controller extends JInvFXFormController<PIkrbRb> {
 //    @FXML JInvTextField CRBNAME;
 //    @FXML JInvLongField IRBSHEMCOR;
     @FXML
-    JInvComboBoxSimple<Long> IRBPROCTYPE;
+    JInvComboBoxSimple IRBPROCTYPE;
 //    @FXML JInvTextField IDSMR;
 //    @FXML JInvLongField IRBEXTENDID;
 //    @FXML JInvTextField CUSRLOGNAME;
@@ -32,11 +32,11 @@ public class EditIkrbRb1Controller extends JInvFXFormController<PIkrbRb> {
     @Override
     protected void init() throws Exception {
         super.init();
-            SQLDataSet<PDgRef> populateDataSet = populateDataSet(PDgRef.class, "select IREFERENCENUM  ,CREFERENCESHORT from dg_ref", "CREFERENCETYPE = 'PL_PROC'", null, 2);
-            DataSetStringConverter<PDgRef, Long> sc = new DataSetStringConverter<>(populateDataSet, PDgRef::getIREFERENCENUM, PDgRef::getCREFERENCESHORT);
-            IRBPROCTYPE.setConverter(sc);
-            IRBPROCTYPE.getItems().clear();
-            IRBPROCTYPE.getItems().addAll(sc.keySet());
+        SQLDataSet<PDgRef> populateDataSet = populateDataSet(PDgRef.class, "select IREFERENCENUM  ,CREFERENCESHORT from dg_ref", "CREFERENCETYPE = 'PL_PROC'", null, 2);
+        DataSetStringConverter<PDgRef, Long> sc = new DataSetStringConverter<>(populateDataSet, PDgRef::getIREFERENCENUM, PDgRef::getCREFERENCESHORT);
+        IRBPROCTYPE.setConverter(sc);
+        IRBPROCTYPE.getItems().clear();
+        IRBPROCTYPE.getItems().addAll(sc.keySet());
     }
 
 }

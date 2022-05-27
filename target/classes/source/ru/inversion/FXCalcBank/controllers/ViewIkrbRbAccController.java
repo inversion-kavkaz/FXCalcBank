@@ -6,6 +6,7 @@ import ru.inversion.FXCalcBank.pojo.PIkrbRbAcc;
 import ru.inversion.bicomp.action.JInvButtonPrint;
 import ru.inversion.bicomp.action.StopExecuteActionBiCompException;
 import ru.inversion.bicomp.fxreport.ApReport;
+import ru.inversion.dataset.DataSetException;
 import ru.inversion.dataset.IDataSet;
 import ru.inversion.dataset.XXIDataSet;
 import ru.inversion.dataset.fx.DSFXAdapter;
@@ -32,12 +33,12 @@ public class ViewIkrbRbAccController extends JInvFXBrowserController {
 
 
     private final XXIDataSet<PIkrbRbAcc> dsIKRB_RB_ACC = new XXIDataSet<>(getTaskContext(), PIkrbRbAcc.class);
-
-    private void initDataSet() {
+    private Long irbNum;
+    private void initDataSet() throws Exception {
         Object obj = getInitProperties().get(AllDictionaryAction.Params.IRBNUM.name());
         if(obj != null)
         {
-            Long irbNum = (Long)obj;
+            irbNum = (Long)obj;
             dsIKRB_RB_ACC.setFilter("IRBNUM = " + irbNum, true, false);
         }
     }
@@ -87,12 +88,24 @@ public class ViewIkrbRbAccController extends JInvFXBrowserController {
                 ActionFactory.ActionTypeEnum.DELETE);
     }
 
+    //
+// setPrintParam
+//
+    private void setPrintParam(ApReport ap) {
+        if (dsIKRB_RB_ACC.isEmpty())
+            throw new StopExecuteActionBiCompException();
+    }
+
+    //
+// doOperation
+//    
     private void doOperation(JInvFXFormController.FormModeEnum mode) {
         PIkrbRbAcc p = null;
 
         switch (mode) {
             case VM_INS:
                 p = new PIkrbRbAcc();
+                p.setIRBNUM(irbNum);
                 break;
             case VM_NONE:
                 if (dsIKRB_RB_ACC.getCurrentRow() == null)
@@ -127,6 +140,11 @@ public class ViewIkrbRbAccController extends JInvFXBrowserController {
             switch (dctl.getFormMode()) {
                 case VM_INS:
                     dsIKRB_RB_ACC.insertRow(dctl.getDataObject(), IDataSet.InsertRowModeEnum.AFTER_CURRENT, true);
+                    try {
+                        dsIKRB_RB_ACC.refreshCurrentRowFromDB();
+                    } catch (DataSetException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 case VM_EDIT:
                     dsIKRB_RB_ACC.updateCurrentRow(dctl.getDataObject());

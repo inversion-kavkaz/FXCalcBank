@@ -14,13 +14,17 @@
     </expression>
 
     <!-- Проводка -->
-    <expression name="runTransactionAction" lang="PL/SQL">
+    <expression name="runTransaction" lang="PL/SQL">
         <script><![CDATA[
             declare
             begin
-                ikrb_main.make_plt(:IFileInID);
+                --:result := ikrb_main.make_plt(:IFileInID); старый вариант по ИД файла
+                :result := ikrb_main.make_plt_d1(ikrb_main.get_mindate);
             end;
         ]]></script>
+        <parameters>
+            <parameter name="result" mode="OUT" sqlType="BIGINT" javaType="Long" />
+        </parameters>
     </expression>
 
     <!-- выгрузка файла -->
@@ -28,9 +32,133 @@
         <script><![CDATA[
             declare
             begin
-                ikrb_main.make_fileout(:IFileInID);
+                :result := ikrb_main.make_fileout(:IFileInID);
             end;
         ]]></script>
+        <parameters>
+            <parameter name="result" mode="OUT" sqlType="BIGINT" javaType="Long" />
+        </parameters>
+    </expression>
+
+    <!-- Удаление файла -->
+    <expression name="delFile" lang="PL/SQL">
+        <script><![CDATA[
+            declare
+            begin
+                :result := ikrb_main.del_File_IN (:IFileInID);
+            end;
+        ]]></script>
+        <parameters>
+            <parameter name="result" mode="OUT" sqlType="BIGINT" javaType="Long" />
+        </parameters>
+    </expression>
+
+    <!-- получаем выгружаемый файл  -->
+    <expression name="GetFile" lang="PL/SQL">
+        <script><![CDATA[
+            declare
+            file_row IKRB_TMP_FILE%rowtype;
+            begin
+                select * into file_row from IKRB_TMP_FILE   where FNAME = :FName;
+                :result :=  file_row.LFILE;
+                delete from IKRB_TMP_FILE   where FNAME = :FName;
+                commit;
+            end;
+        ]]></script>
+        <parameters>
+            <parameter name="result" mode="OUT" sqlType="BLOB" javaType="Blob" />
+        </parameters>
+    </expression>
+
+    <!-- получаем дату проводок  -->
+    <expression name="GetTrnDate" lang="PL/SQL">
+        <script><![CDATA[
+            declare
+            begin
+            :date := ikrb_main.get_mindate;
+            end;
+        ]]></script>
+        <parameters>
+            <parameter name="date" mode="OUT" sqlType="DATE" javaType="LocalDate" />
+        </parameters>
+    </expression>
+
+    <!-- запускаем после проводок если ок  -->
+    <expression name="plt2trnMain" lang="PL/SQL">
+        <script><![CDATA[
+            declare
+            begin
+                :res := ikrb_main.plt2trnMain(I_FILEINID=>null,noSavePoint=>false,i_plgrid=>null,flagPltErr=>0,ID_Session=>ikrb_main.get_SessID);
+            end;
+        ]]></script>
+        <parameters>
+            <parameter name="res" mode="OUT" sqlType="BIGINT" javaType="Long" />
+        </parameters>
+    </expression>
+
+    <!-- запускаем после проводок если  не ок  -->
+    <expression name="recall_plt_d" lang="PL/SQL">
+        <script><![CDATA[
+            declare
+            begin
+                :res := ikrb_main.recall_plt_d1 (ikrb_main.main_date);
+            end;
+        ]]></script>
+        <parameters>
+            <parameter name="res" mode="OUT" sqlType="BIGINT" javaType="Long" />
+        </parameters>
+    </expression>
+
+    <!-- нажимаем кнопку создать   -->
+    <expression name="create_new_pack" lang="PL/SQL">
+        <script><![CDATA[
+            declare
+            begin
+                :res := ikrb_main.create_new_pack;
+            end;
+        ]]></script>
+        <parameters>
+            <parameter name="res" mode="OUT" sqlType="BIGINT" javaType="Long" />
+        </parameters>
+    </expression>
+
+    <!-- нажимаем кнопку отправить   -->
+    <expression name="send_pack" lang="PL/SQL">
+        <script><![CDATA[
+            declare
+            begin
+                :res := ikrb_main.send_pack (:ipackid);
+            end;
+        ]]></script>
+        <parameters>
+            <parameter name="res" mode="OUT" sqlType="BIGINT" javaType="Long" />
+        </parameters>
+    </expression>
+
+    <!-- нажимаем кнопку откатить   -->
+    <expression name="rollback_pack" lang="PL/SQL">
+        <script><![CDATA[
+            declare
+            begin
+                :res := ikrb_main.rollback_pack (:ipackid);
+            end;
+        ]]></script>
+        <parameters>
+            <parameter name="res" mode="OUT" sqlType="BIGINT" javaType="Long" />
+        </parameters>
+    </expression>
+
+    <!-- нажимаем кнопку конеу месяца   -->
+    <expression name="end_month_komis " lang="PL/SQL">
+        <script><![CDATA[
+            declare
+            begin
+                :res := ikrb_main.end_month_komis;
+            end;
+        ]]></script>
+        <parameters>
+            <parameter name="res" mode="OUT" sqlType="BIGINT" javaType="Long" />
+        </parameters>
     </expression>
 
 </sql_expr_list>

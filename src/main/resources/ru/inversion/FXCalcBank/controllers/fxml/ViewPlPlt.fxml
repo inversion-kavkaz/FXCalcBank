@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.VBox?>
+<?import ru.inversion.fx.form.controls.JInvButton?>
+<?import ru.inversion.fx.form.controls.JInvTable?>
+<?import ru.inversion.fx.form.controls.JInvTableColumn?>
+<?import ru.inversion.fx.form.controls.JInvTableColumnDate?>
+<?import ru.inversion.fx.form.controls.JInvTableColumnMoney?>
+<?import ru.inversion.fx.form.controls.JInvToolBar?>
+
+<VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.ViewPlPltController">
+<children>
+<JInvToolBar fx:id="toolBar" />
+<JInvTable fx:id="PL_PLT" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+<columns>
+<JInvTableColumnDate fx:id="DPLTCREATE" fieldName="DPLTCREATE" text="%DPLTCREATE" />
+<JInvTableColumnDate fx:id="DPLTDOC" fieldName="DPLTDOC" text="%DPLTDOC" />
+<JInvTableColumnDate fx:id="DPLTVAL" fieldName="DPLTVAL" text="%DPLTVAL" />
+<JInvTableColumn fx:id="CPLTACCD" fieldName="CPLTACCD" text="%CPLTACCD" />
+<JInvTableColumn fx:id="CPLTACCC" fieldName="CPLTACCC" text="%CPLTACCC" />
+<JInvTableColumnMoney fx:id="MPLTEVTSUM" fieldName="MPLTEVTSUM" text="%MPLTEVTSUM" />
+<JInvTableColumn fx:id="CPLTNAME" fieldName="CPLTNAME" prefWidth="300.0" text="%CPLTNAME" />
+</columns>
+<VBox.margin>
+<Insets bottom="5.0" left="5.0" right="5.0" />
+</VBox.margin>
+</JInvTable>
+    <ButtonBar buttonMinWidth="80.0">
+        <buttons>
+            <JInvButton fx:id="btOK" text="Продолжить"/>
+            <JInvButton fx:id="btCancel" text="Отмена"/>
+        </buttons>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+    </ButtonBar>
+
+</children>
+</VBox>

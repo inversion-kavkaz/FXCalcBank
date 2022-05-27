@@ -1,10 +1,13 @@
 package ru.inversion.FXCalcBank.pojo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.math.BigDecimal;
+import java.sql.*;
+import java.time.*;
 import java.io.Serializable;
+import javax.persistence.*;
+import ru.inversion.dataset.mark.*;
+import ru.inversion.db.entity.DBReturningValue;
+import ru.inversion.db.entity.ProxyFor;
 
 /**
 @author  XDWeloper
@@ -25,8 +28,9 @@ public class PIkrbTarScale implements Serializable
 
     public PIkrbTarScale(){}
 
-    @Id 
-    @Column(name="ITARID",nullable = false,length = 0)
+    @Id
+    @DBReturningValue
+    @Column(name="ITARID",length = 0)
     public Long getITARID() {
         return ITARID;
     }

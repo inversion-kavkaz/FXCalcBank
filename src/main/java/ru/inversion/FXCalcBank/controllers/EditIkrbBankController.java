@@ -2,6 +2,8 @@ package ru.inversion.FXCalcBank.controllers;
 
 import ru.inversion.FXCalcBank.pojo.PIkrbBank;
 import ru.inversion.fx.form.JInvFXFormController;
+import ru.inversion.fx.form.controls.*;
+import javafx.fxml.FXML;
 
 /**
  * @author  XDWeloper
@@ -26,7 +28,11 @@ public class EditIkrbBankController extends JInvFXFormController <PIkrbBank>
 //
 // Initializes the controller class.
 //
-
+    @Override
+    protected void init () throws Exception 
+    {
+        super.init (); 
+    }    
 
 }
 

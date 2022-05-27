@@ -24,15 +24,15 @@ import java.util.stream.Collectors;
 
 public class AllDictionaryAction extends ActionBiComp<Map<AllDictionaryAction.Params,Object>,Map<AllDictionaryAction.Params,Object>> {
 
-    public enum Params{IRBNUM}
+    public static enum Params{IRBNUM};
 
     private BiConsumer<AbstractBaseController.FormReturnEnum, JInvFXFormController<Object>> postCallback;
 
-    private AllDictionaryAction() {
+    public AllDictionaryAction() {
         super(new IconDescriptorBuilder<>(FontAwesome.fa_bank, null).build(),
                 BundleFXCalcBank.getString("TOOLTIP.ALL.DICTIONARY"),
                 new HashMap<>());
-        super.setHotKey(Arrays.asList(new KeyCodeCombination(KeyCode.R, KeyCombination.ALT_DOWN)));
+        super.setHotKey(Arrays.asList(new KeyCodeCombination(KeyCode.R, KeyCombination.CONTROL_ANY)));
         setDefaultHandler(this::defaultHandler);
     }
 
@@ -57,7 +57,7 @@ public class AllDictionaryAction extends ActionBiComp<Map<AllDictionaryAction.Pa
     }
 
     private Map<String, Object> initParams(){
-        return  actObj.entrySet().stream().filter(p -> p.getValue() != null).collect(Collectors.toMap(i -> i.getKey().name(), Map.Entry::getValue));
+        return  actObj.entrySet().stream().filter(p -> p.getValue() != null).collect(Collectors.toMap(i -> i.getKey().name(), i-> i.getValue()));
     }
 
 

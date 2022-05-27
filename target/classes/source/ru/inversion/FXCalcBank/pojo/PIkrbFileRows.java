@@ -17,6 +17,7 @@ public class PIkrbFileRows implements Serializable
     private Long IFILEINID;
     private Long IMSGLINE;
     private String CRAWSTR;
+    private Long IRAWSTATUS;
 
     public PIkrbFileRows(){}
 
@@ -49,4 +50,7 @@ public class PIkrbFileRows implements Serializable
     public void setCRAWSTR(String val) {
         CRAWSTR = val; 
     }
+    @Column(name="IRAWSTATUS",length = 10)
+    public Long getIRAWSTATUS() {return IRAWSTATUS;}
+    public void setIRAWSTATUS(Long IRAWSTATUS) {this.IRAWSTATUS = IRAWSTATUS;}
 }

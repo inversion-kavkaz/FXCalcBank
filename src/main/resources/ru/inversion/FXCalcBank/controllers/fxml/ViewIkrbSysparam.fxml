@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import ru.inversion.fx.form.controls.*?>
+<?import ru.inversion.fx.form.controls.dsbar.DSInfoBar?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.inversion.FXCalcBank.controllers.ViewIkrbSysparamController">
+<children>
+<JInvToolBar fx:id="toolBar" />
+<JInvTable fx:id="IKRB_SYSPARAM" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+<columns>
+<JInvTableColumn fx:id="IRBSYSID" text="%IRBSYSID" fieldName="IRBSYSID"  />
+<JInvTableColumn fx:id="CRBSYSNAME" text="%CRBSYSNAME" fieldName="CRBSYSNAME"  />
+<JInvTableColumn fx:id="CRBSYSVALUE" text="%CRBSYSVALUE" fieldName="CRBSYSVALUE" prefWidth="300.0" />
+</columns>
+<VBox.margin>
+<Insets bottom="5.0" left="5.0" right="5.0" />
+</VBox.margin>
+</JInvTable>
+</children>
+</VBox>

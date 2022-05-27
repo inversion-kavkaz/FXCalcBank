@@ -1,10 +1,13 @@
 package ru.inversion.FXCalcBank.pojo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.math.BigDecimal;
+import java.sql.*;
+import java.time.*;
 import java.io.Serializable;
+import javax.persistence.*;
+import ru.inversion.dataset.mark.*;
+import ru.inversion.db.entity.DBReturningValue;
+import ru.inversion.db.entity.ProxyFor;
 
 /**
 @author  XDWeloper
@@ -24,16 +27,16 @@ public class PIkrbBankAcc implements Serializable
 
     public PIkrbBankAcc(){}
 
-    @Id 
-    @Column(name="IBANK_ACCID",nullable = false,length = 3)
+    @Id
+    @DBReturningValue
+    @Column(name="IBANK_ACCID",length = 3)
     public Long getIBANK_ACCID() {
         return IBANK_ACCID;
     }
     public void setIBANK_ACCID(Long val) {
         IBANK_ACCID = val; 
     }
-    @Id 
-    @Column(name="IBANKID",nullable = false,length = 10)
+    @Column(name="IBANKID",length = 10)
     public Long getIBANKID() {
         return IBANKID;
     }

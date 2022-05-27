@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
 <?import ru.inversion.fx.form.controls.*?>
+<?import ru.inversion.fx.form.controls.dsbar.DSInfoBar?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
 <VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.ViewIkrbTarScaleController">
 <children>
 <JInvToolBar fx:id="toolBar" />

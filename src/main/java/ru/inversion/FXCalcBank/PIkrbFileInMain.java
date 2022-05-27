@@ -4,9 +4,11 @@ import java.util.Collections;
 import java.util.Map;
 
 import ru.inversion.FXCalcBank.controllers.ViewIkrbFileInController;
+import ru.inversion.fx.app.property.PropertiesTypeEnum;
 import ru.inversion.fx.form.ViewContext;
 import ru.inversion.fx.app.BaseApp;
 import ru.inversion.fx.form.FXFormLauncher;
+import ru.inversion.tc.TaskContext;
 import ru.inversion.annotation.StartMethod;
 
 /**
@@ -20,7 +22,7 @@ public class PIkrbFileInMain extends BaseApp
     @Override
     protected void showMainWindow () 
     {
-        showViewIkrbFileIn (getPrimaryViewContext (), Collections.emptyMap ());
+        showViewIkrbFileIn (getPrimaryViewContext (), null, Collections.emptyMap ());
     }
 
     @Override
@@ -35,9 +37,9 @@ public class PIkrbFileInMain extends BaseApp
     }
 
     @StartMethod (description = "Модуль \"Расчетный банк\"")
-    private static void showViewIkrbFileIn(ViewContext vc, Map<String, Object> map)
+    public static void showViewIkrbFileIn ( ViewContext vc, TaskContext tc, Map<String, Object> map ) 
     {
-        new FXFormLauncher<> (null, vc, ViewIkrbFileInController.class)
+        new FXFormLauncher<> (tc, vc, ViewIkrbFileInController.class)
             .initProperties (map)
             .show ();
     }

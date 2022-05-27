@@ -25,15 +25,15 @@ import java.util.stream.Collectors;
 
 public class AccEmployeeDictionaryAction extends ActionBiComp<Map<AccEmployeeDictionaryAction.Params,Object>,Map<AccEmployeeDictionaryAction.Params,Object>> {
 
-    public enum Params{IBANKID}
+    public static enum Params{IBANKID};
 
     private BiConsumer<AbstractBaseController.FormReturnEnum, JInvFXFormController<Object>> postCallback;
 
-    private AccEmployeeDictionaryAction() {
+    public AccEmployeeDictionaryAction() {
         super(new IconDescriptorBuilder<>(FontAwesome.fa_bandcamp, null).build(),
                 BundleFXCalcBank.getString("TOOLTIP.ACC.EMPLOYEE"),
                 new HashMap<>());
-        super.setHotKey(Arrays.asList(new KeyCodeCombination(KeyCode.R, KeyCombination.ALT_DOWN)));
+        super.setHotKey(Arrays.asList(new KeyCodeCombination(KeyCode.R, KeyCombination.CONTROL_ANY)));
         setDefaultHandler(this::defaultHandler);
     }
 
@@ -58,7 +58,7 @@ public class AccEmployeeDictionaryAction extends ActionBiComp<Map<AccEmployeeDic
     }
 
     private Map<String, Object> initParams(){
-        return  actObj.entrySet().stream().filter(p -> p.getValue() != null).collect(Collectors.toMap(i -> i.getKey().name(), Map.Entry::getValue));
+        return  actObj.entrySet().stream().filter(p -> p.getValue() != null).collect(Collectors.toMap(i -> i.getKey().name(), i-> i.getValue()));
     }
 
 

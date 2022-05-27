@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.VBox?>
+<?import ru.inversion.fx.form.controls.JInvTable?>
+<?import ru.inversion.fx.form.controls.JInvTableColumn?>
+<?import ru.inversion.fx.form.controls.JInvTableColumnDate?>
+<?import ru.inversion.fx.form.controls.JInvToolBar?>
+
+
+<SplitPane dividerPositions="0.5" orientation="VERTICAL" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.ViewIkrbOpController">
+   <items>
+      <VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0">
+          <children>
+              <JInvToolBar fx:id="toolBar" multipleUse="true"/>
+              <JInvTable fx:id="IKRB_OP" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+                  <columns>
+                      <JInvTableColumn fx:id="IRBOPID" fieldName="IRBOPID" text="%IRBOPID" />
+                      <JInvTableColumn fx:id="CRBOPNAME" fieldName="CRBOPNAME" prefWidth="300.0" text="%CRBOPNAME" />
+                      <JInvTableColumn fx:id="CRBOPOPER" fieldName="CRBOPOPER" text="%CRBOPOPER" />
+                      <JInvTableColumnDate fx:id="DRBOPDATE" fieldName="DRBOPDATE" text="%DRBOPDATE" />
+                      <JInvTableColumn fx:id="IRBNUM" fieldName="IRBNUM" text="%IRBNUM" />
+                      <JInvTableColumn fx:id="CRBOPCODE" fieldName="CRBOPCODE" text="%CRBOPCODE" />
+                  </columns>
+                  <VBox.margin>
+                      <Insets bottom="5.0" left="5.0" right="5.0" />
+                  </VBox.margin>
+              </JInvTable>
+          </children>
+      </VBox>
+      <JInvTable fx:id="V_IKRB_OP_S" tableMenuButtonVisible="true">
+         <columns>
+            <JInvTableColumn fx:id="IRBOPSID" fieldName="IRBOPSID" text="%IRBOPSID" />
+            <JInvTableColumn fx:id="IRBOPSPRIOR" fieldName="IRBOPSPRIOR" text="%IRBOPSPRIOR" />
+            <JInvTableColumn fx:id="CRBOPSOPER" fieldName="CRBOPSOPER" text="%CRBOPSOPER" />
+            <JInvTableColumnDate fx:id="DRBOPSDATE" fieldName="DRBOPSDATE" text="%DRBOPSDATE" />
+            <JInvTableColumn fx:id="CRBOPNAME1" fieldName="CRBOPNAME" prefWidth="300.0" text="%CRBOPNAME" />
+            <JInvTableColumn fx:id="CTYPEEVNAME" fieldName="CTYPEEVNAME" prefWidth="300.0" text="%CTYPEEVNAME" />
+            <JInvTableColumn fx:id="CBANKNAME" fieldName="CBANKNAME" prefWidth="300.0" text="%CBANKNAME" />
+            <JInvTableColumn fx:id="CTARNAME" fieldName="CTARNAME" prefWidth="300.0" text="%CTARNAME" />
+         </columns>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </JInvTable>
+   </items>
+</SplitPane>
