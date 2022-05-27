@@ -31,11 +31,11 @@
 </properties>
 
 <dependencies>
-    <dependency><groupId>ru.inversion.jp</groupId><version>1.0.0</version><artifactId>JInvFore_jar</artifactId><scope>system</scope><systemPath>D:\JAPP_604\JInvFore.jar</systemPath></dependency>
-    <dependency><groupId>ru.inversion.jp</groupId><version>1.0.0</version><artifactId>FXbicomp_jar</artifactId><scope>system</scope><systemPath>D:\JAPP_604\FXbicomp.jar</systemPath></dependency>
-    <dependency><groupId>ru.inversion.jp</groupId><version>1.0.0</version><artifactId>FxPlRefer_jar</artifactId><scope>system</scope><systemPath>D:\JAPP_604\FxPlRefer.jar</systemPath></dependency>
-    <dependency><groupId>ru.inversion.jp</groupId><version>1.0.0</version><artifactId>lib_slf4j_api_jar</artifactId><scope>system</scope><systemPath>D:\JAPP_604\lib\slf4j-api.jar</systemPath></dependency>
-    <dependency><groupId>ru.inversion-kavkaz</groupId><artifactId>manifest-reader</artifactId><version>1.0.0</version><scope>system</scope><systemPath>D:\JAPP_604\lib\manifest-reader.jar</systemPath></dependency>
+    <dependency><groupId>ru.inversion.jp</groupId><version>1.0.0</version><artifactId>JInvFore_jar</artifactId><scope>system</scope><systemPath>C:\JAPP_604\JInvFore.jar</systemPath></dependency>
+    <dependency><groupId>ru.inversion.jp</groupId><version>1.0.0</version><artifactId>FXbicomp_jar</artifactId><scope>system</scope><systemPath>C:\JAPP_604\FXbicomp.jar</systemPath></dependency>
+    <dependency><groupId>ru.inversion.jp</groupId><version>1.0.0</version><artifactId>FxPlRefer_jar</artifactId><scope>system</scope><systemPath>C:\JAPP_604\FxPlRefer.jar</systemPath></dependency>
+    <dependency><groupId>ru.inversion.jp</groupId><version>1.0.0</version><artifactId>lib_slf4j_api_jar</artifactId><scope>system</scope><systemPath>C:\JAPP_604\lib\slf4j-api.jar</systemPath></dependency>
+    <dependency><groupId>ru.inversion-kavkaz</groupId><artifactId>manifest-reader</artifactId><version>1.0.0</version><scope>system</scope><systemPath>C:\JAPP_604\lib\manifest-reader.jar</systemPath></dependency>
 
 </dependencies>
 

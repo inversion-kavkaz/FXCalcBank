@@ -1,4 +1,4 @@
-package ru.inversion.FXCalcBank;
+package ru.inversion.FXCalcBank.pojo;
 
 import java.math.BigDecimal;
 import java.sql.*;

@@ -27,6 +27,7 @@
                         <MenuItem mnemonicParsing="false" onAction="#openRBDictionary" text="Справочник действий" />
                         <MenuItem mnemonicParsing="false" onAction="#openBankDictionary" text="Справочник участников" />
                         <MenuItem mnemonicParsing="false" onAction="#openVPlFile" text="Форматы файлов обмена" />
+                        <MenuItem mnemonicParsing="false" onAction="#BINDictionary" text="Справочник Бин" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Помощь">

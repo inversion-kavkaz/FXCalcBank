@@ -4,11 +4,11 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.FileChooser;
-import ru.inversion.FXCalcBank.PIkrbTmpFile;
 import ru.inversion.FXCalcBank.action.*;
 import ru.inversion.FXCalcBank.pojo.PIkrbFileIn;
 import ru.inversion.FXCalcBank.pojo.PIkrbFileRows;
 import ru.inversion.FXCalcBank.pojo.PIkrbSysparam;
+import ru.inversion.FXCalcBank.pojo.PIkrbTmpFile;
 import ru.inversion.FXCalcBank.utils.Utils;
 import ru.inversion.bicomp.action.JInvButtonPrint;
 import ru.inversion.bicomp.action.StopExecuteActionBiCompException;
@@ -34,10 +34,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Formatter;
 import java.util.function.Supplier;
 
 /**
@@ -265,6 +263,15 @@ public class ViewIkrbFileInController extends JInvFXBrowserController {
     @FXML
     private void openRBDictionary() {
         new FXFormLauncher<>(taskContext, viewContext, ViewIkrbRbController.class)
+                .initProperties(getInitProperties())
+                .show();
+    }
+    /**
+     * справочник бинов
+     */
+    @FXML
+    private void BINDictionary() {
+        new FXFormLauncher<>(taskContext, viewContext, ViewIkrbGrbinController.class)
                 .initProperties(getInitProperties())
                 .show();
     }

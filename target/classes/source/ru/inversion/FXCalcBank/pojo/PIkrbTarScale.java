@@ -25,6 +25,10 @@ public class PIkrbTarScale implements Serializable
     private Long ITARPERCENT;
     private Long ITARMIN;
     private Long ITARMAX;
+    private Long ITARCALC;
+    private String CTAR_COD;
+    private String ITARCALC_STRING;
+
 
     public PIkrbTarScale(){}
 
@@ -72,4 +76,17 @@ public class PIkrbTarScale implements Serializable
     public void setITARMAX(Long val) {
         ITARMAX = val; 
     }
+    @Column(name="ITARCALC",length = 0)
+    public Long getITARCALC() {return ITARCALC;}
+    public void setITARCALC(Long ITARCALC) {
+        this.ITARCALC = ITARCALC;
+        this.ITARCALC_STRING = ITARCALC.equals(1L) ? "Да" : "Нет";
+    }
+    @Column(name="CTAR_COD",length = 4000)
+    public String getCTAR_COD() {return CTAR_COD;}
+    public void setCTAR_COD(String CTAR_COD) {this.CTAR_COD = CTAR_COD;}
+
+    @Transient
+    public String getITARCALC_STRING() {return ITARCALC_STRING;}
+    public void setITARCALC_STRING(String ITARCALC_STRING) {this.ITARCALC_STRING = ITARCALC_STRING;}
 }

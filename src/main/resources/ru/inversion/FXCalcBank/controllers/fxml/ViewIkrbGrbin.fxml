@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.VBox?>
+<?import ru.inversion.fx.form.controls.JInvTable?>
+<?import ru.inversion.fx.form.controls.JInvTableColumn?>
+<?import ru.inversion.fx.form.controls.JInvToolBar?>
+
+<SplitPane dividerPositions="0.5" orientation="VERTICAL" xmlns="http://javafx.com/javafx/8.0.271" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.ViewIkrbGrbinController">
+   <items>
+      <VBox spacing="5.0">
+      <children>
+      <JInvTable fx:id="IKRB_GRBIN" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+      <columns>
+      <JInvTableColumn fx:id="IGRBINID" fieldName="IGRBINID" text="%IGRBINID" />
+      <JInvTableColumn fx:id="CGRBINNAME" fieldName="CGRBINNAME" prefWidth="300.0" text="%CGRBINNAME" />
+      </columns>
+      <VBox.margin>
+      <Insets bottom="5.0" left="5.0" right="5.0" />
+      </VBox.margin>
+      </JInvTable>
+      </children>
+      </VBox>
+      <VBox spacing="5.0">
+         <children>
+            <JInvToolBar fx:id="toolBar" />
+            <JInvTable fx:id="IKRB_BIN" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+               <columns>
+                  <JInvTableColumn fx:id="IBINID" fieldName="IBINID" text="%IBINID" />
+                  <JInvTableColumn fx:id="IGRBINID1" fieldName="IGRBINID" text="%IGRBINID" />
+                  <JInvTableColumn fx:id="CBIN" fieldName="CBIN" text="%CBIN" />
+               </columns>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" />
+               </VBox.margin>
+            </JInvTable>
+         </children>
+      </VBox>
+   </items>
+</SplitPane>

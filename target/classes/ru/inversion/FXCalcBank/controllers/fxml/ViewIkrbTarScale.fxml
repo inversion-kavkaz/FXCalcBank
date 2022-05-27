@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import ru.inversion.fx.form.controls.*?>
-<?import ru.inversion.fx.form.controls.dsbar.DSInfoBar?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.VBox?>
+<?import ru.inversion.fx.form.controls.JInvTable?>
+<?import ru.inversion.fx.form.controls.JInvTableColumn?>
+<?import ru.inversion.fx.form.controls.JInvToolBar?>
 
-<VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.ViewIkrbTarScaleController">
+<VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.271" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.ViewIkrbTarScaleController">
 <children>
 <JInvToolBar fx:id="toolBar" />
 <JInvTable fx:id="IKRB_TAR_SCALE" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
 <columns>
-<JInvTableColumn fx:id="ITARID" text="%ITARID" fieldName="ITARID"  />
-<JInvTableColumn fx:id="CTARNAME" text="%CTARNAME" fieldName="CTARNAME" prefWidth="300.0" />
-<JInvTableColumn fx:id="ITARFIX" text="%ITARFIX" fieldName="ITARFIX"  />
-<JInvTableColumn fx:id="ITARPERCENT" text="%ITARPERCENT" fieldName="ITARPERCENT"  />
-<JInvTableColumn fx:id="ITARMIN" text="%ITARMIN" fieldName="ITARMIN"  />
-<JInvTableColumn fx:id="ITARMAX" text="%ITARMAX" fieldName="ITARMAX"  />
+<JInvTableColumn fx:id="ITARID" alignment="CENTER" fieldName="ITARID" text="%ITARID" />
+<JInvTableColumn fx:id="CTARNAME" fieldName="CTARNAME" prefWidth="300.0" text="%CTARNAME" />
+<JInvTableColumn fx:id="ITARFIX" fieldName="ITARFIX" text="%ITARFIX" />
+<JInvTableColumn fx:id="ITARPERCENT" fieldName="ITARPERCENT" text="%ITARPERCENT" />
+<JInvTableColumn fx:id="ITARMIN" fieldName="ITARMIN" text="%ITARMIN" />
+<JInvTableColumn fx:id="ITARMAX" fieldName="ITARMAX" text="%ITARMAX" />
+<JInvTableColumn fx:id="ITARCALC_STRING" alignment="TOP_RIGHT" fieldName="ITARCALC_STRING" text="%ITARCALC_STRING" />
 </columns>
 <VBox.margin>
 <Insets bottom="5.0" left="5.0" right="5.0" />

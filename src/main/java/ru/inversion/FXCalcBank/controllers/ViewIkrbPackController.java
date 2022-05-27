@@ -1,11 +1,8 @@
 package ru.inversion.FXCalcBank.controllers;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
-import ru.inversion.FXCalcBank.PIkrbTmpFile;
 import ru.inversion.FXCalcBank.action.CommissionProcessingAction;
 import ru.inversion.FXCalcBank.pojo.PIkrbPack;
-import ru.inversion.FXCalcBank.pojo.PIkrbSysparam;
 import ru.inversion.FXCalcBank.pojo.PIkrbe;
 import ru.inversion.bicomp.util.ParamMap;
 import ru.inversion.dataset.*;
@@ -16,8 +13,6 @@ import ru.inversion.fx.app.AlertException;
 import ru.inversion.fx.form.*;
 import ru.inversion.fx.form.controls.*;
 import ru.inversion.icons.enums.FontAwesome;
-
-import java.util.Map;
 
 /**
  *
