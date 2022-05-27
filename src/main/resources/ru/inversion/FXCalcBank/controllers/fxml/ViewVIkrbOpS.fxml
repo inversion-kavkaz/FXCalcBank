@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import ru.inversion.fx.form.controls.*?>
+<?import ru.inversion.fx.form.controls.dsbar.DSInfoBar?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.ViewVIkrbOpSController">
+<children>
+<JInvToolBar fx:id="toolBar" />
+<JInvTable fx:id="V_IKRB_OP_S" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+<columns>
+<JInvTableColumn fx:id="IRBOPSID" text="%IRBOPSID" fieldName="IRBOPSID"  />
+<JInvTableColumn fx:id="IRBOPSPRIOR" text="%IRBOPSPRIOR" fieldName="IRBOPSPRIOR"  />
+<JInvTableColumn fx:id="CRBOPSOPER" text="%CRBOPSOPER" fieldName="CRBOPSOPER"  />
+<JInvTableColumnDate fx:id="DRBOPSDATE" text="%DRBOPSDATE" fieldName="DRBOPSDATE"  />
+<JInvTableColumn fx:id="IRBOPID" text="%IRBOPID" fieldName="IRBOPID"  />
+<JInvTableColumn fx:id="CRBOPNAME" text="%CRBOPNAME" fieldName="CRBOPNAME" prefWidth="300.0" />
+<JInvTableColumn fx:id="ITYPEEVEVID" text="%ITYPEEVEVID" fieldName="ITYPEEVEVID"  />
+<JInvTableColumn fx:id="CTYPEEVNAME" text="%CTYPEEVNAME" fieldName="CTYPEEVNAME" prefWidth="300.0" />
+<JInvTableColumn fx:id="IBANKID" text="%IBANKID" fieldName="IBANKID"  />
+<JInvTableColumn fx:id="CBANKNAME" text="%CBANKNAME" fieldName="CBANKNAME" prefWidth="300.0" />
+<JInvTableColumn fx:id="ITARID" text="%ITARID" fieldName="ITARID"  />
+<JInvTableColumn fx:id="CTARNAME" text="%CTARNAME" fieldName="CTARNAME" prefWidth="300.0" />
+</columns>
+<VBox.margin>
+<Insets bottom="5.0" left="5.0" right="5.0" />
+</VBox.margin>
+</JInvTable>
+</children>
+</VBox>

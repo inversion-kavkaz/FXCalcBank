@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import ru.inversion.fx.form.controls.*?>
+<?import ru.inversion.fx.form.controls.dsbar.DSInfoBar?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.ViewIkrbTypeevController">
+<children>
+<JInvToolBar fx:id="toolBar" />
+<JInvTable fx:id="IKRB_TYPEEV" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+<columns>
+<JInvTableColumn fx:id="ITYPEEVEVID" text="%ITYPEEVEVID" fieldName="ITYPEEVEVID"  />
+<JInvTableColumn fx:id="CTYPEEVNAME" text="%CTYPEEVNAME" fieldName="CTYPEEVNAME" prefWidth="300.0" />
+<JInvTableColumn fx:id="ITYPEEVTYPE" text="%ITYPEEVTYPE" fieldName="ITYPEEVTYPE"  />
+<JInvTableColumn fx:id="IPLTEVGR" text="%IPLTEVGR" fieldName="IPLTEVGR"  />
+<JInvTableColumn fx:id="IRBNUM" text="%IRBNUM" fieldName="IRBNUM"  />
+<JInvTableColumn fx:id="ITYPEEV_ACCD" text="%ITYPEEV_ACCD" fieldName="ITYPEEV_ACCD"  />
+<JInvTableColumn fx:id="ITYPEEV_ACCC" text="%ITYPEEV_ACCC" fieldName="ITYPEEV_ACCC"  />
+<JInvTableColumn fx:id="CTYPEEV_COD" text="%CTYPEEV_COD" fieldName="CTYPEEV_COD"  />
+</columns>
+<VBox.margin>
+<Insets bottom="5.0" left="5.0" right="5.0" />
+</VBox.margin>
+</JInvTable>
+</children>
+</VBox>
