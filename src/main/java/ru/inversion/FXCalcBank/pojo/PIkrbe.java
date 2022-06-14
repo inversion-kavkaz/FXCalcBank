@@ -13,12 +13,18 @@ import ru.inversion.db.entity.ProxyFor;
 @since   2022/05/20 11:36:17
 */
 @Entity (name="ru.inversion.FXCalcBank.pojo.PIkrbe")
-@Table (name="IKRBE")
+//@Table (name="IKRBE")
+@NamedNativeQuery(name = "query", query = "" +
+        "SELECT a.IKRBESTATUS,a.DIKRBEDATE,a.IMSGAPPID,a.MIKRBESUM,a.IKRBEID,a.ITYPEEVEVID, b.IPACKID \n" +
+        "from ikrbe a, ikrb_pack_rec b " +
+        "where a.ikrbeid = b.ipleeventid"
+)
 public class PIkrbe implements Serializable
 {
     private static final long serialVersionUID = 20_05_2022_11_36_17l;
 
     private Long IKRBEID;
+    private Long IPACKID;
     private LocalDate DIKRBEDATE;
     private BigDecimal MIKRBESUM;
     private Long ITYPEEVEVID;
@@ -67,4 +73,7 @@ public class PIkrbe implements Serializable
     @Column(name="IMSGAPPID",length = 10)
     public Long getIMSGAPPID() {    return IMSGAPPID;}
     public void setIMSGAPPID(Long IMSGAPPID) {this.IMSGAPPID = IMSGAPPID;}
+    @Column(name="IPACKID",length = 12, updatable = false, insertable = false)
+    public Long getIPACKID() {return IPACKID;}
+    public void setIPACKID(Long IPACKID) { this.IPACKID = IPACKID;}
 }

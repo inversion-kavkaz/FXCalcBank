@@ -14,7 +14,7 @@ import ru.inversion.db.entity.ProxyFor;
 */
 @Entity (name="ru.inversion.FXCalcBank.pojo.PPlPlt")
 //@Table (name="PL_PLT")
-@NamedNativeQuery(name = "query", query = "select * from pl_plt where csessionid = ikrb_main.get_SessID")
+@NamedNativeQuery(name = "query", query = "select * from pl_plt where csessionid = ikrb_main.get_SessID and nvl(mpltsumd,0) > 0")
 public class PPlPlt implements Serializable
 {
     private static final long serialVersionUID = 18_05_2022_17_28_58l;

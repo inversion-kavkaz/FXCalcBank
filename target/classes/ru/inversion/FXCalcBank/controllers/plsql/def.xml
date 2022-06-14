@@ -20,10 +20,12 @@
             begin
                 --:result := ikrb_main.make_plt(:IFileInID); старый вариант по ИД файла
                 :result := ikrb_main.make_plt_d1(ikrb_main.get_mindate);
+                select count(*) into :cnt from pl_plt where csessionid = ikrb_main.get_SessID and nvl(mpltsumd,0) > 0;
             end;
         ]]></script>
         <parameters>
             <parameter name="result" mode="OUT" sqlType="BIGINT" javaType="Long" />
+            <parameter name="cnt" mode="OUT" sqlType="BIGINT" javaType="Long" />
         </parameters>
     </expression>
 
@@ -154,6 +156,19 @@
             declare
             begin
                 :res := ikrb_main.end_month_komis;
+            end;
+        ]]></script>
+        <parameters>
+            <parameter name="res" mode="OUT" sqlType="BIGINT" javaType="Long" />
+        </parameters>
+    </expression>
+
+    <!-- Кнопка проводки на форме "Обработка комиссий"   -->
+    <expression name="make_complt" lang="PL/SQL">
+        <script><![CDATA[
+            declare
+            begin
+                :res := IKRB_MAIN.make_complt (:fileinid);
             end;
         ]]></script>
         <parameters>

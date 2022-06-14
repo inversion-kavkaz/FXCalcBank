@@ -4,6 +4,9 @@ import javafx.fxml.FXML;
 import ru.inversion.FXCalcBank.action.CommissionProcessingAction;
 import ru.inversion.FXCalcBank.pojo.PIkrbPack;
 import ru.inversion.FXCalcBank.pojo.PIkrbe;
+import ru.inversion.bicomp.action.JInvButtonPrint;
+import ru.inversion.bicomp.action.StopExecuteActionBiCompException;
+import ru.inversion.bicomp.fxreport.ApReport;
 import ru.inversion.bicomp.util.ParamMap;
 import ru.inversion.dataset.*;
 import ru.inversion.dataset.fx.DSFXAdapter;
@@ -13,6 +16,7 @@ import ru.inversion.fx.app.AlertException;
 import ru.inversion.fx.form.*;
 import ru.inversion.fx.form.controls.*;
 import ru.inversion.icons.enums.FontAwesome;
+import sun.security.krb5.Config;
 
 /**
  *
@@ -32,7 +36,8 @@ public class ViewIkrbPackController extends JInvFXBrowserController
 
     private void initDataSet ()
     {
-        DataLinkBuilder.linkDataSet(dsIKRB_PACK, dsIKRBE, PIkrbPack::getIPACKID, "IMSGAPPID");
+        dsIKRB_PACK.setFilter(" DPACKDATE = TRUNC(SYSDATE)", false, false);
+        DataLinkBuilder.linkDataSet(dsIKRB_PACK, dsIKRBE, PIkrbPack::getIPACKID, "IPACKID");
     }
 
     @Override
@@ -57,11 +62,58 @@ public class ViewIkrbPackController extends JInvFXBrowserController
 
     private void initToolBar ()
     {
+        JInvButtonPrint bp = new JInvButtonPrint(this::setPrintParam);
+        bp.setReportTypeId(9999999002d);
+
+        toolBar.getItems ().add (ActionFactory.createButton(ActionFactory.ActionTypeEnum.REFRESH, (a) -> doRefresh()));
+        toolBar.getItems().add(bp);
+
         toolBar.getItems().add(ActionFactory.createButton(FontAwesome.fa_file_o, "Новый",event -> newPackage(), "Новый"));
         toolBar.getItems().add(ActionFactory.createButton(FontAwesome.fa_arrow_right, "Отправить",event -> send(), "Отправить"));
+        toolBar.getItems().add(ActionFactory.createButton(FontAwesome.fa_bug, "Проводки",event -> trn(), "Проводкиь"));
         toolBar.getItems().add(ActionFactory.createButton(FontAwesome.fa_remove, "Откатить",event -> cancel(), "Откатить"));
         toolBar.getItems().add(ActionFactory.createButton(FontAwesome.fa_calendar_check_o, "Конец месяца",event -> endMount(), "Конец месяца"));
 //        toolBar.getItems ().add (ActionFactory.createButton(ActionFactory.ActionTypeEnum.SETTINGS, (a) -> JInvMainFrame.showSettingsPane ()));
+    }
+
+    private void setPrintParam(ApReport ap) {
+        if (dsIKRB_PACK.isEmpty())
+            throw new StopExecuteActionBiCompException();
+    }
+
+    private void trn() {
+        if(dsIKRB_PACK.getCurrentRow() == null) return;
+        Long result;
+        try {
+            ParamMap p = new ParamMap().add("fileinid", dsIKRB_PACK.getCurrentRow().getIPACKID()).exec(this,"make_complt");
+            result = p.getLong("res");
+            if(result > 0)
+            new FXFormLauncher<> (this, ViewPlPltController.class)
+                .callback (this::doTrnResult)
+                .doModal ();
+            else {
+                try {
+                    new ParamMap().exec(this,"plt2trnMain");
+                    Alerts.info(this, "ИНФОРМАЦИЯ", "Проводки выполнены успешно");
+                } catch (SQLExpressionException e) {
+                    throw new AlertException(e);
+                }
+            }
+            if(result < 0)
+                throw new SQLExpressionException();
+        } catch (SQLExpressionException e) {
+            throw new AlertException(e);
+        }
+    }
+
+    private void doTrnResult(FormReturnEnum formReturnEnum, JInvFXFormController<Object> objectJInvFXFormController) {
+        try {
+            new ParamMap().exec(this,formReturnEnum.equals(FormReturnEnum.RET_OK) ? "plt2trnMain" : "recall_plt_d");
+            if(formReturnEnum.equals(FormReturnEnum.RET_OK))
+                Alerts.info(this, "ИНФОРМАЦИЯ", "Проводки выполнены успешно");
+        } catch (SQLExpressionException e) {
+            throw new AlertException(e);
+        }
     }
 
     private void newPackage(){
@@ -69,12 +121,12 @@ public class ViewIkrbPackController extends JInvFXBrowserController
         try {
             ParamMap p = new ParamMap().exec(this,"create_new_pack");
             result = p.getLong("res");
+            doRefresh();
         } catch (SQLExpressionException e) {
             throw new AlertException(e);
         }
         if(result.equals(1L)) {
             Alerts.info(this, "Информация", "Операция прошла успешно.");
-            doRefresh();
         }
     }
 
@@ -102,12 +154,13 @@ public class ViewIkrbPackController extends JInvFXBrowserController
         try {
             ParamMap p = new ParamMap().add("ipackid",ipackid).exec(this,"rollback_pack");
             result = p.getLong("res");
+            doRefresh();
         } catch (SQLExpressionException e) {
             throw new AlertException(e);
         }
         if(result.equals(1L)) {
             Alerts.info(this, "Информация", "Операция прошла успешно.");
-            dsIKRB_PACK.refreshCurrentDependentData();
+            //dsIKRB_PACK.refreshCurrentDependentData();
         }
     }
 

@@ -132,16 +132,27 @@ public class ViewIkrbFileInController extends JInvFXBrowserController {
 
         runBlockingProc(() -> {
             Long result = 0L;
+            Long cnt = 0L;
+
             ParamMap p;
             try {
                 //p = new ParamMap().add("IFileInID", dsIKRB_FILE_IN.getCurrentRow().getIFILEINID()).exec(this, "runTransaction");
                 p = new ParamMap().exec(this, "runTransaction");
                 result = p.getLong("result");
+                cnt = p.getLong("cnt");
                 if (result < 0)
                     throw new SQLExpressionException();
             } catch (SQLExpressionException e) {
                 throw new AlertException("Ошибка выполнения транзакции.");
             }
+            if (cnt.equals(0)){
+                try {
+                    new ParamMap().exec(this,"plt2trnMain");
+                    Alerts.info(this, "ИНФОРМАЦИЯ", "Проводки выполнены успешно");
+                } catch (SQLExpressionException e) {
+                    throw new AlertException(e);
+                }
+            }else
             Platform.runLater(() -> {
                 //Alerts.info(this, "ИНФОРМАЦИЯ", "Проводки выполнены успешно", "Файл: " + dsIKRB_FILE_IN.getCurrentRow().getCFILEINNAME());
                 new FXFormLauncher<> (this, ViewPlPltController.class)

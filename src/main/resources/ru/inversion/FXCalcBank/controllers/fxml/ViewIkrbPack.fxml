@@ -21,7 +21,8 @@
       <JInvTableColumn fx:id="IPACKNUM" fieldName="IPACKNUM" text="%IPACKNUM" />
       <JInvTableColumn fx:id="CFILENAME" fieldName="CFILENAME" prefWidth="300.0" text="%CFILENAME" />
       <JInvTableColumnMoney fx:id="MPACKSUM" fieldName="MPACKSUM" text="%MPACKSUM" />
-      <JInvTableColumnDate fx:id="DPACKDATETIME" fieldName="DPACKDATETIME" text="%DPACKDATETIME" />
+      <JInvTableColumnDate fx:id="DPACKDATE" fieldName="DPACKDATE" visible="false" text="%DPACKDATETIME"/>
+      <JInvTableColumnDate fx:id="DPACKDATETIME" fieldName="DPACKDATETIME" text="%DPACKDATETIME" showInFilter="false"/>
       <JInvTableColumn fx:id="IPACKSTATUS" fieldName="IPACKSTATUS" text="%IPACKSTATUS" />
       </columns>
       <VBox.margin>

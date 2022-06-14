@@ -23,6 +23,7 @@ public class PIkrbPack implements Serializable
     private String CFILENAME;
     private BigDecimal MPACKSUM;
     private LocalDate DPACKDATETIME;
+    private LocalDate DPACKDATE;
     private Long IPACKSTATUS;
 
     public PIkrbPack(){}
@@ -61,8 +62,11 @@ public class PIkrbPack implements Serializable
         return DPACKDATETIME;
     }
     public void setDPACKDATETIME(LocalDate val) {
-        DPACKDATETIME = val; 
+        DPACKDATETIME = val;
     }
+    @Column(name="DPACKDATE")
+    public LocalDate getDPACKDATE() {return DPACKDATE; }
+    public void setDPACKDATE(LocalDate val) {DPACKDATE = val;}
     @Column(name="IPACKSTATUS",nullable = false,length = 1)
     public Long getIPACKSTATUS() {
         return IPACKSTATUS;
