@@ -128,13 +128,17 @@
     <expression name="send_pack" lang="PL/SQL">
         <script><![CDATA[
             declare
+                l_msg varchar2(2000);
             begin
-                :res := ikrb_main.send_pack (:ipackid);
+                :res := ikrb_main.send_pack (:ipackid,l_msg);
+                :MSG := l_msg;
             end;
         ]]></script>
         <parameters>
             <parameter name="res" mode="OUT" sqlType="BIGINT" javaType="Long" />
+            <parameter name="MSG" mode="OUT" sqlType="VARCHAR" javaType="String" />
         </parameters>
+
     </expression>
 
     <!-- нажимаем кнопку откатить   -->
@@ -167,12 +171,15 @@
     <expression name="make_complt" lang="PL/SQL">
         <script><![CDATA[
             declare
+            l_msg varchar2(2000);
             begin
-                :res := IKRB_MAIN.make_complt (:fileinid);
+                :res := IKRB_MAIN.make_complt (:fileinid,l_msg);
+                :MSG := l_msg;
             end;
         ]]></script>
         <parameters>
             <parameter name="res" mode="OUT" sqlType="BIGINT" javaType="Long" />
+            <parameter name="MSG" mode="OUT" sqlType="VARCHAR" javaType="String" />
         </parameters>
     </expression>
 

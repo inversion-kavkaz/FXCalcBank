@@ -28,7 +28,7 @@
             <JInvTable fx:id="IKRB_BIN" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
                <columns>
                   <JInvTableColumn fx:id="IBINID" fieldName="IBINID" text="%IBINID" />
-                  <JInvTableColumn fx:id="IGRBINID1" fieldName="IGRBINID" text="%IGRBINID" />
+                  <JInvTableColumn fx:id="IGRBINID1" fieldName="IGRBINID" text="%IGRBINID1" />
                   <JInvTableColumn fx:id="CBIN" fieldName="CBIN" text="%CBIN" />
                </columns>
                <VBox.margin>
