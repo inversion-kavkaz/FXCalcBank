@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.VBox?>
+<?import ru.inversion.fx.form.controls.JInvTable?>
+<?import ru.inversion.fx.form.controls.JInvTableColumn?>
+<?import ru.inversion.fx.form.controls.JInvToolBar?>
+
+
+<SplitPane dividerPositions="0.5" orientation="VERTICAL" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="ru.inversion.FXCalcBank.controllers.ViewIkrbTdDefController">
+   <items>
+      <VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0">
+      <children>
+      <JInvToolBar fx:id="toolBar" multipleUse="true"/>
+      <JInvTable fx:id="IKRB_TD_DEF" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+      <columns>
+      <JInvTableColumn fx:id="IPLT_SHEMID" fieldName="IPLT_SHEMID" text="%IPLT_SHEMID" />
+      <JInvTableColumn fx:id="IPLT_EVENT" fieldName="IPLT_EVENT" text="%IPLT_EVENT" />
+      <JInvTableColumn fx:id="ITOPNAME" fieldName="ITOPNAME" text="%ITOPNUM" />
+      <JInvTableColumn fx:id="IPLTDDEFID" fieldName="IPLTDDEFID" text="%IPLTDDEFID" />
+      <JInvTableColumn fx:id="CTOPCUR" fieldName="CTOPCUR" text="%CTOPCUR" />
+      </columns>
+      <VBox.margin>
+      <Insets bottom="5.0" left="5.0" right="5.0" />
+      </VBox.margin>
+      </JInvTable>
+      </children>
+      </VBox>
+      <JInvTable fx:id="IKRB_TP_DEF" tableMenuButtonVisible="true">
+         <columns>
+            <JInvTableColumn fx:id="IPLTDDEFID1" fieldName="IPLTDDEFID" text="%IPLTDDEFID1" />
+            <JInvTableColumn fx:id="IPLTPDEFID" fieldName="IPLTPDEFID" text="%IPLTPDEFID" />
+            <JInvTableColumn fx:id="IPLTPTYPE" fieldName="IPLTPTYPE" text="%IPLTPTYPE" />
+            <JInvTableColumn fx:id="IPLTPCALC" fieldName="IPLTPCALC" text="%IPLTPCALC" />
+            <JInvTableColumn fx:id="CPLTPCOD" fieldName="CPLTPCOD" text="%CPLTPCOD" />
+         </columns>
+      </JInvTable>
+   </items>
+</SplitPane>

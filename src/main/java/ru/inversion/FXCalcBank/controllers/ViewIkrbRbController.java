@@ -1,6 +1,8 @@
 package ru.inversion.FXCalcBank.controllers;
 
 import javafx.fxml.FXML;
+import ru.inversion.FXCalcBank.action.BuhPropAction;
+import ru.inversion.FXCalcBank.action.OperationPropsAction;
 import ru.inversion.FXCalcBank.pojo.PIkrbRb;
 import ru.inversion.FXCalcBank.pojo.PIkrbTypeev;
 import ru.inversion.dataset.DataLinkBuilder;
@@ -53,6 +55,14 @@ public class ViewIkrbRbController extends JInvFXBrowserController {
         IKRB_TYPEEV.setAction(ActionFactory.ActionTypeEnum.DELETE, (a) -> doOperation(FormModeEnum.VM_DEL));
         IKRB_TYPEEV.setAction(ActionFactory.ActionTypeEnum.REFRESH, (a) -> doRefresh());
 
+
+        /**Настройка бухгалтерских документов*/
+        toolBar.getItems().add(ActionFactory.createButton(
+                new BuhPropAction((p) -> {
+            if(dsIKRB_TYPEEV.getCurrentRow() != null){
+                p.put(BuhPropAction.Params.ITYPEEVEVID, dsIKRB_TYPEEV.getCurrentRow() != null ? dsIKRB_TYPEEV.getCurrentRow().getITYPEEVEVID() : null);
+            }
+        },null)));
 
         doRefresh();
     }

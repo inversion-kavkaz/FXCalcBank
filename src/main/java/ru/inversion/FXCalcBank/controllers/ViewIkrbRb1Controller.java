@@ -104,7 +104,7 @@ public class ViewIkrbRb1Controller extends JInvFXBrowserController
         /**Настройка операций*/
         toolBar.getItems().add(ActionFactory.createButton(new OperationPropsAction((p) -> {
             if(dsIKRB_BANK.getCurrentRow() != null){
-                p.put( OperationPropsAction.Params.IRB_NUM, dsIKRB_BANK.getCurrentRow() != null ? dsIKRB_BANK.getCurrentRow().getIRBNUM() : null);
+                p.put(OperationPropsAction.Params.IRB_NUM, dsIKRB_BANK.getCurrentRow() != null ? dsIKRB_BANK.getCurrentRow().getIRBNUM() : null);
                 p.put(OperationPropsAction.Params.IBANK_ID, dsIKRB_BANK.getCurrentRow() != null ? dsIKRB_BANK.getCurrentRow().getIBANKID(): null);
             }
         },null)));

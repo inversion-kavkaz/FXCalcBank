@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import ru.inversion.fx.form.controls.JInvButton?>
+<?import ru.inversion.fx.form.controls.JInvCheckBox?>
+<?import ru.inversion.fx.form.controls.JInvLabel?>
+<?import ru.inversion.fx.form.controls.JInvLongField?>
+<?import ru.inversion.fx.form.controls.JInvTextArea?>
+<?import ru.inversion.fx.form.controls.JInvTextField?>
+
+<VBox spacing="5.0" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversion.FXCalcBank.controllers.EditIkrbTpDefController">
+<children>
+<GridPane hgap="5.0" vgap="5.0" VBox.vgrow="ALWAYS">
+<children>
+<JInvLabel fx:id="lblIPLTPTYPE" text="%IPLTPTYPE" GridPane.columnIndex="0" />
+            <HBox GridPane.columnIndex="1">
+               <children>
+      <JInvLongField fx:id="IPLTPTYPE" fieldName="IPLTPTYPE" maxWidth="-Infinity" prefColumnCount="3" />
+                  <JInvTextField fx:id="IPLTPTYPENAME" disable="true" fieldName="IPLTPTYPENAME" />
+               </children>
+            </HBox>
+<JInvLabel fx:id="lblIPLTPCALC" text="%IPLTPCALC" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+<JInvLabel fx:id="lblCPLTPCOD" text="%CPLTPCOD" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+<JInvTextArea fx:id="CPLTPCOD" fieldName="CPLTPCOD" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <JInvCheckBox fx:id="IPLTPCALC_CHECK" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+</children>
+<columnConstraints>
+<ColumnConstraints />
+<ColumnConstraints hgrow="ALWAYS" />
+</columnConstraints>
+<VBox.margin>
+<Insets />
+</VBox.margin>
+<rowConstraints>
+<RowConstraints />
+<RowConstraints />
+<RowConstraints />
+<RowConstraints minHeight="1.0" />
+</rowConstraints>
+</GridPane>
+<ButtonBar buttonMinWidth="80.0">
+<buttons>
+<JInvButton fx:id="btOK" />
+<JInvButton fx:id="btCancel" />
+</buttons>
+</ButtonBar>
+</children>
+<padding>
+<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+</padding>
+</VBox>

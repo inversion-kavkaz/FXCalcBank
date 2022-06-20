@@ -21,6 +21,7 @@
 <JInvTableColumn fx:id="CPLTACCD" fieldName="CPLTACCD" text="%CPLTACCD" />
 <JInvTableColumn fx:id="CPLTACCC" fieldName="CPLTACCC" text="%CPLTACCC" />
 <JInvTableColumnMoney fx:id="MPLTEVTSUM" fieldName="MPLTEVTSUM" text="%MPLTEVTSUM" />
+<JInvTableColumnMoney fx:id="MPLTSUMD" fieldName="MPLTSUMD" text="%MPLTSUMD" />
 <JInvTableColumn fx:id="CPLTNAME" fieldName="CPLTNAME" prefWidth="300.0" text="%CPLTNAME" />
 </columns>
 <VBox.margin>

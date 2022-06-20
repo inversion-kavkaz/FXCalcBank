@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import ru.inversion.fx.form.controls.JInvButton?>
+<?import ru.inversion.fx.form.controls.JInvLabel?>
+<?import ru.inversion.fx.form.controls.JInvLongField?>
+<?import ru.inversion.fx.form.controls.JInvTextField?>
+
+<VBox spacing="5.0" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ru.inversion.FXCalcBank.controllers.EditIkrbTdDefController">
+    <children>
+        <GridPane hgap="5.0" vgap="5.0" VBox.vgrow="ALWAYS">
+            <children>
+                <JInvLabel fx:id="lblIPLT_EVENT" text="%IPLT_EVENT" GridPane.columnIndex="0"/>
+                <JInvLongField fx:id="IPLT_EVENT" disable="true" fieldName="IPLT_EVENT" maxWidth="-Infinity"
+                               prefColumnCount="5" GridPane.columnIndex="1"/>
+                <JInvLabel fx:id="lblITOPNUM" text="%ITOPNUM" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <HBox GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <children>
+                        <JInvLongField fx:id="ITOPNUM" fieldName="ITOPNUM" maxWidth="-Infinity" prefColumnCount="3" disable="true"/>
+                        <JInvTextField fx:id="ITOPNAME" fieldName="ITOPNAME"/>
+                    </children>
+                </HBox>
+                <JInvLabel fx:id="lblCTOPCUR" text="%CTOPCUR" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <JInvTextField fx:id="CTOPCUR" fieldName="CTOPCUR" maxWidth="-Infinity" prefColumnCount="3"
+                               GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            </children>
+            <columnConstraints>
+                <ColumnConstraints/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+            </columnConstraints>
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+            <rowConstraints>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints minHeight="1.0"/>
+            </rowConstraints>
+        </GridPane>
+        <ButtonBar buttonMinWidth="80.0">
+            <buttons>
+                <JInvButton fx:id="btOK" />
+                <JInvButton fx:id="btCancel"/>
+            </buttons>
+        </ButtonBar>
+    </children>
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+    </padding>
+</VBox>

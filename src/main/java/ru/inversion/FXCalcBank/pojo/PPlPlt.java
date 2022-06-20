@@ -14,7 +14,7 @@ import ru.inversion.db.entity.ProxyFor;
 */
 @Entity (name="ru.inversion.FXCalcBank.pojo.PPlPlt")
 //@Table (name="PL_PLT")
-@NamedNativeQuery(name = "query", query = "select * from pl_plt where csessionid = ikrb_main.get_SessID and nvl(mpltsumd,0) > 0")
+@NamedNativeQuery(name = "query", query = "select * from pl_plt where csessionid = ikrb_main.get_SessID and nvl(mpltsumd,0) > 0 and nvl(ipltidparent,0) = 0")
 public class PPlPlt implements Serializable
 {
     private static final long serialVersionUID = 18_05_2022_17_28_58l;
@@ -27,6 +27,7 @@ public class PPlPlt implements Serializable
     private String CPLTACCD;
     private String CPLTACCC;
     private BigDecimal MPLTEVTSUM;
+    private BigDecimal MPLTSUMD;
     private String CPLTNAME;
 
     public PPlPlt(){}
@@ -78,9 +79,14 @@ public class PPlPlt implements Serializable
     public BigDecimal getMPLTEVTSUM() {
         return MPLTEVTSUM;
     }
-    public void setMPLTEVTSUM(BigDecimal val) {
-        MPLTEVTSUM = val; 
+    public void setMPLTEVTSUM(BigDecimal val) {MPLTEVTSUM = val;}
+
+    @Column(name="MPLTSUMD",length = 16)
+    public BigDecimal getMPLTSUMD() {
+        return MPLTSUMD;
     }
+    public void setMPLTSUMD(BigDecimal val) {MPLTSUMD = val;}
+
     @Column(name="CPLTNAME",length = 1024)
     public String getCPLTNAME() {
         return CPLTNAME;
